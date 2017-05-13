@@ -1,12 +1,13 @@
-<?php
+﻿<?php
 session_start();
 
-$link= @mysqli_connect(
-		'localhost',//主機名(ip)
-		'root',//使用者
-		'a1043328',//密碼
-		'07mid');//使用的資料庫名
+require("sql/linksql.php");
 
+//$link= @mysqli_connect(
+//		'localhost',
+//		'root',
+//		'21427jack',
+//		'phpproject');
 $result=mysqli_query($link," SELECT * FROM product");
 	
 	// echo "<table border=1>";

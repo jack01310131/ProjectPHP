@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -23,11 +23,13 @@
 
 
 <?php
-$link= @mysqli_connect(
-		'localhost',//主機名(ip)
-		'root',//使用者
-		'',//密碼
-		'PHPproject');//使用的資料庫名
+require("sql/linksql.php");
+
+//$link= @mysqli_connect(
+//		'localhost',
+//		'root',
+//		'21427jack',
+//		'phpproject');
 
 if (isset($_POST['name'])){
 

@@ -1,9 +1,11 @@
-<?php
-$link= @mysqli_connect(
-		'localhost',//主機名(ip)
-		'root',//使用者
-		'21427jack',//密碼
-		'07mid');//使用的資料庫名
+﻿<?php
+require("sql/linksql.php");
+
+//$link= @mysqli_connect(
+//		'localhost',
+//		'root',
+//		'21427jack',
+//		'phpproject');
 echo '<form action="" method="post">
 			帳號：<input type="text" name="name"></br>
 			密碼：<input type="password" name="pwd"></br>

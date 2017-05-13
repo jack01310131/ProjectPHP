@@ -1,10 +1,12 @@
-<?php
+﻿<?php
 session_start();
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'',
-		'phpproject');	
+require("sql/linksql.php");
+
+//$link= @mysqli_connect(
+//		'localhost',
+//		'root',
+//		'21427jack',
+//		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 if(isset($_SESSION["CODE"])){
 	$code=$_SESSION["CODE"];

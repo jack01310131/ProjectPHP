@@ -14,7 +14,6 @@
 			電話：<input type="text" name="phone"></br>
 			生日:<input type="date" name="Bday"></br>
 			地址：<input type="text" name="address" /> <br>
-			備註：<textarea name="other" cols="45" rows="5"></textarea> <br>
 
 			<input type="submit" value="送出">
 		 </form>
@@ -25,11 +24,11 @@
 <?php
 require("sql/linksql.php");
 
-//$link= @mysqli_connect(
-//		'localhost',
-//		'root',
-//		'21427jack',
-//		'phpproject');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 
 if (isset($_POST['name'])){
 
@@ -42,7 +41,6 @@ $email=$_POST["email"];
 $phone=$_POST["phone"];
 $Bday=$_POST["Bday"];
 $address=$_POST["address"];
-$other=$_POST["other"];
 
 
 mysqli_query($link,'SET NAMES utf8');
@@ -55,7 +53,7 @@ $result=mysqli_query($link," SELECT * FROM member ");
 			header("Refresh:3;URL=reg.php");
 		}
 	}
-	mysqli_query($link," INSERT INTO member (UID,pwd,name,gender,email,phone,Bday,address,other) VALUES ('$UID','$pwd','$name','$gender','$email','$phone','$Bday','$address','$other')");
+	mysqli_query($link," INSERT INTO member (UID,pwd,name,gender,email,phone,Bday,address,other) VALUES ('$UID','$pwd','$name','$gender','$email','$phone','$Bday','$address','user')");
 			echo "帳號申請成功";
 			header("Refresh:3;URL=log.php");
 

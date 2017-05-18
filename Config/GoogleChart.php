@@ -22,7 +22,8 @@ class GoogleChart{
             $params[] = "$key=$value";
         }   
         $url .= "?".implode("&",$params);
-        echo "<a href='$url'>圖表</a>";
+        // echo "<a href='$url'>圖表</a>";
+        echo "<img src='$url'>";
 
         // header("Location: $url");
     }   

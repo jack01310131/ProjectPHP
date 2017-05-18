@@ -1,8 +1,4 @@
 <?php
-if(isset($_SESSION['code']));
-else
-	header("Location: log.php");
-
 session_start();
 require("sql/linksql.php");
 
@@ -28,31 +24,36 @@ while ($row=mysqli_fetch_assoc($result)){
 </form>
 
 <?php
-if (isset($_POST['Address'])) {
-	$Recipient_Data=date('Y-m-j H:i:s');
-	$Recipient_GetTime=$_POST['GetTime'];
-	$Recipient_Address=$_POST['Address'];
-
-	mysqli_query($link," INSERT INTO invoice (Member_Code,Recipient_Data,Recipient_GetTime,Recipient_Address,status) VALUES ('$memberCode','$Recipient_Data','$Recipient_GetTime','$Recipient_Address','no') ");
-	sleep(2);
-	$result=mysqli_query($link," SELECT code FROM invoice WHERE Member_Code='$memberCode' and Recipient_Data='$Recipient_Data'");
-	while ($row=mysqli_fetch_assoc($result)){
-		$invoice_Code=$row['code'];
-	}
-	$result=mysqli_query($link," SELECT * FROM product");
-	while ($row=mysqli_fetch_assoc($result)){
-		$ProductCode=$row['Code'];
-		if (isset($_COOKIE[$row['Code']])) {
-		$price=$_COOKIE[$row['Price']];
-		$quantity=$_COOKIE[$ProductCode."Quantity"];
-		$remark=$_COOKIE[$ProductCode."Remark"];
-		$total=$price*$quantity;
-		mysqli_query($link," INSERT INTO list (invoice_Code,Produce_Code,Total_Amount,Total_Sum,Remarks) VALUES ('$invoice_Code','$ProductCode','$quantity','$total','$remark')");
+if(isset($_SESSION['code']))
+{
+	if (isset($_POST['Address'])) {
+		$Recipient_Data=date('Y-m-j H:i:s');
+		$Recipient_GetTime=$_POST['GetTime'];
+		$Recipient_Address=$_POST['Address'];
+		$GetTimeHours=date("H",strtotime($Recipient_GetTime));
+		mysqli_query($link," INSERT INTO invoice (Member_Code,Recipient_Data,Recipient_GetTime,Recipient_Address,status,GetTimeHours) VALUES ('$memberCode','$Recipient_Data','$Recipient_GetTime','$Recipient_Address','no','$GetTimeHours') ");
+		sleep(2);
+		$result=mysqli_query($link," SELECT code FROM invoice WHERE Member_Code='$memberCode' and Recipient_Data='$Recipient_Data'");
+		while ($row=mysqli_fetch_assoc($result)){
+			$invoice_Code=$row['code'];
 		}
+		$result=mysqli_query($link," SELECT * FROM product");
+		while ($row=mysqli_fetch_assoc($result)){
+			$ProductCode=$row['Code'];
+			if (isset($_COOKIE[$row['Code']])) {
+			$price=$_COOKIE[$row['Price']];
+			$quantity=$_COOKIE[$ProductCode."Quantity"];
+			$remark=$_COOKIE[$ProductCode."Remark"];
+			$total=$price*$quantity;
+			mysqli_query($link," INSERT INTO list (invoice_Code,Produce_Code,Total_Amount,Total_Sum,Remarks) VALUES ('$invoice_Code','$ProductCode','$quantity','$total','$remark')");
+			}
+		}
+		echo "下單成功  將於2秒後回到首頁";
+		header("Refresh:2;url=catalog.php");//待改成home
+
 	}
-	echo "下單成功  將於2秒後回到首頁";
-	header("Refresh:2;url=catalog.php");//待改成home
-
 }
-
+else
+	header("Location: log.php");
+mysqli_close($link);
 ?>

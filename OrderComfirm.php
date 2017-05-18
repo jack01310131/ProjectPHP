@@ -47,7 +47,7 @@ if (isset($_POST['Address'])) {
 		$quantity=$_COOKIE[$ProductCode."Quantity"];
 		$remark=$_COOKIE[$ProductCode."Remark"];
 		$total=$price*$quantity;
-		mysqli_query($link," INSERT INTO list (invoice_Code,Produce_Code,Total_Amount,Total_Sum,Remarks) VALUES ('$invoice_Code','$ProductCode','$total','$quantity','$remark')");
+		mysqli_query($link," INSERT INTO list (invoice_Code,Produce_Code,Total_Amount,Total_Sum,Remarks) VALUES ('$invoice_Code','$ProductCode','$quantity','$total','$remark')");
 		}
 	}
 	echo "下單成功  將於2秒後回到首頁";

@@ -5,8 +5,8 @@ session_start();
 $link= @mysqli_connect(
 		'localhost',
 		'root',
-		'21427jack',
-		'phpproject');
+		'a1043328',
+		'php');
 mysqli_query($link,'SET NAMES utf8');
 
 echo '<form action="" method="post">

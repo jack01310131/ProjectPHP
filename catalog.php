@@ -2,11 +2,11 @@
 session_start();
 require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'a1043328',
+		'php');
 if(isset($_SESSION['code'])){
 	$result=mysqli_query($link," SELECT * FROM product");
 	$userCode=$_SESSION["code"];
@@ -19,6 +19,7 @@ if(isset($_SESSION['code'])){
 	$n++;
 	}	
 		echo "<input type='submit' value='訂購'/><br/>";
+		echo "<a href = 'logout.php' >登出</a>";
 	echo "</form>";
 	if (isset($_POST['Quantity'])) {
 		$j=0;

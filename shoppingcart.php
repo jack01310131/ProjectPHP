@@ -3,11 +3,11 @@ session_start();
 $total=0;
 require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-		// 'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'a1043328',
+		'php');
 if(isset($_SESSION['code'])){
 	$result=mysqli_query($link," SELECT * FROM product");
 	while ($row=mysqli_fetch_assoc($result)){
@@ -28,7 +28,8 @@ if(isset($_SESSION['code'])){
 
 	echo "總價：",$total,"<br/>";
 	echo "<a href='OrderComfirm.php'>下單</a><br/>";
-	echo "<a href='catalog.php'>商品目錄</a>";
+	echo "<a href='catalog.php'>商品目錄</a><br/>";
+	echo "<a href = 'logout.php' >登出</a>";
 	mysqli_close($link);
 
 }

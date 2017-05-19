@@ -1,15 +1,16 @@
 <?php
 session_start();
 require("sql/linksql.php");
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'a1043328',
+		'php');
 
 mysqli_query($link,'SET NAMES utf8');
 $result=mysqli_query($link," SELECT * FROM invoice ");
-
+echo "<a href = 'logout.php' >登出</a><br/>";
+echo "<a href = 'Analyze.php' >分析訂單</a><br/>";
 while ($row=mysqli_fetch_assoc($result) )
 {
 	if ($row['status']=="no")

@@ -3,13 +3,15 @@ require("Config/GoogleChart.php");
 
 require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'a1043328',
+		'php');
 /*銷售分析*/
 mysqli_query($link,'SET NAMES utf8');
+echo "<a href = 'logout.php' >登出</a><br/>";
+echo "<a href = 'Order_overview.php' >檢視訂單</a><br/>";
 $data = array();
 $labels = array();
 $legends = array();

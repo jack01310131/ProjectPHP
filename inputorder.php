@@ -1,16 +1,17 @@
 ﻿<form action='' method='post'>
 		名稱：<input type='text' name='Name'>
 		價格：<input type='text' name='Price'>
-		<input type='submit' value='送出'>
+		<input type='submit' value='送出'><br>>
+		<a href = 'logout.php' >登出</a>
 </form>
 <?php
 require("sql/linksql.php");
 
-//$link= @mysqli_connect(
-//		'localhost',
-//		'root',
-//		'21427jack',
-//		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'a1043328',
+		'php');
 mysqli_query($link,'SET NAMES utf8');
 
 if (isset($_POST['Name']) && isset($_POST['Price'])) {

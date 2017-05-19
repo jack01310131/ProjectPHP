@@ -2,11 +2,11 @@
 session_start();
 require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'a1043328',
+		'php');
 mysqli_query($link,'SET NAMES utf8');
 $memberCode=$_SESSION['code'];
 
@@ -21,7 +21,10 @@ while ($row=mysqli_fetch_assoc($result)){
 	送達時間：<input type='time' name='GetTime' value=<?php echo $time;?>><br/>
 	地址：<input type='text' name='Address' value=<?php echo $address;?>><br/>
 	<input type='submit' value='送出 '/><br/>
+	<a href = 'logout.php' >登出</a>
 </form>
+
+
 
 <?php
 if(isset($_SESSION['code']))
@@ -49,7 +52,7 @@ if(isset($_SESSION['code']))
 			}
 		}
 		echo "下單成功  將於2秒後回到首頁";
-		header("Refresh:2;url=catalog.php");//待改成home
+		header("Refresh:2;url=home.php");//待改成home
 
 	}
 }

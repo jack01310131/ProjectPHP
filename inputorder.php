@@ -1,28 +1,34 @@
 ﻿<form action='' method='post'>
 		名稱：<input type='text' name='Name'>
 		價格：<input type='text' name='Price'>
+		種類：<select name="species">
+				<option>---</option>
+				<option value="水果">水果</option>
+				<option value="麵食">麵食</option>
+				<option value="飲料">飲料</option>
+				</select></br>
 		<input type='submit' value='送出'><br>>
 		<a href = 'logout.php' >登出</a>
 </form>
 <?php
 require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'a1043328',
-		'php');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'a1043328',
+// 		'php');
 mysqli_query($link,'SET NAMES utf8');
 
 if (isset($_POST['Name']) && isset($_POST['Price'])) {
 	$Name=$_POST['Name'];
 	$Price=$_POST['Price'];
-
-	mysqli_query($link," INSERT INTO product (Name,Price,Status) VALUES ('$Name','$Price','yes') ");
+	$species=$_POST['species'];
+	mysqli_query($link," INSERT INTO product (Name,Price,Status,species) VALUES ('$Name','$Price','yes','$species') ");
 
 	$result=mysqli_query($link," SELECT * FROM product WHERE Name='$Name' and Price='$Price' ");
 	while ($row=mysqli_fetch_assoc($result)) {
-		echo "新增的資料為：<br/>名稱：".$row['Name']."   價格：".$row['Price']."<br/>";
+		echo "新增的資料為：<br/>名稱：".$row['Name']."   價格：".$row['Price']." 種類：".$row['species']."<br/>";
 	}
 }
 mysqli_close($link);

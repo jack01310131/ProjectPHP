@@ -1,11 +1,11 @@
 <?php
 session_start();
 require("sql/linksql.php");
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'a1043328',
-		'php');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'a1043328',
+// 		'php');
 
 mysqli_query($link,'SET NAMES utf8');
 $result=mysqli_query($link," SELECT * FROM invoice ");

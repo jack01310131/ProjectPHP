@@ -2,11 +2,11 @@
 session_start();
 require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'a1043328',
-		'php');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'a1043328',
+// 		'php');
 mysqli_query($link,'SET NAMES utf8');
 $memberCode=$_SESSION['code'];
 
@@ -52,7 +52,7 @@ if(isset($_SESSION['code']))
 			}
 		}
 		echo "下單成功  將於2秒後回到首頁";
-		header("Refresh:2;url=home.php");//待改成home
+		header("Refresh:2;url=home.php");
 
 	}
 }

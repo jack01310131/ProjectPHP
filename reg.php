@@ -30,11 +30,11 @@
 <?php
 require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'a1043328',
-		'php');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'a1043328',
+// 		'php');
 
 if (isset($_POST['name'])){
 

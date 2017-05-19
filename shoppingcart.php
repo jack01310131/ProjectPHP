@@ -3,11 +3,11 @@ session_start();
 $total=0;
 require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'a1043328',
-		'php');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'a1043328',
+// 		'php');
 if(isset($_SESSION['code'])){
 	$result=mysqli_query($link," SELECT * FROM product");
 	while ($row=mysqli_fetch_assoc($result)){

@@ -6,8 +6,8 @@ require("sql/linksql.php");
 // $link= @mysqli_connect(
 // 		'localhost',
 // 		'root',
-// 		'a1043328',
-// 		'php');
+// 		'21427jack',
+// 		'phpproject');
 /*銷售分析*/
 mysqli_query($link,'SET NAMES utf8');
 echo "<a href = 'logout.php' >登出</a><br/>";
@@ -57,6 +57,7 @@ $chart = new GooglePieChart(500,300);
 $chart->setData($data,$labels,$legends);
 $chart->draw();
 echo "<br/>";
+
 /*客群分析*/
 $data = array();
 $labels = array();
@@ -78,6 +79,37 @@ echo "總出單數：".$T_time."<br/>";
 $chart = new GooglePieChart(500,300);
 $chart->setData($data,$labels,$legends);
 $chart->draw();
+echo "<br/>";
+/*隨機點餐重選率分析*/
+$data = array();
+$labels = array();
+$legends = array();
+
+$result=mysqli_query($link,"SELECT Name,ProductCode,COUNT(ProductCode) as time FROM ramdom,product WHERE product.Code=ramdom.ProductCode GROUP BY ProductCode");
+$result2=mysqli_query($link,"SELECT ProductCode,COUNT(ProductCode) as retime FROM ramdom WHERE RamdomChange='重選' GROUP BY ProductCode");
+$n=0;
+while($row=mysqli_fetch_assoc($result2) ){
+	$recode[$n]=$row['ProductCode'];
+	$retime[$n]=$row['retime'];
+	$n++;
+}
+$i=$n;
+$n=0;
+while($row=mysqli_fetch_assoc($result))
+{	
+	echo "名稱：".$row['Name']." 選取次數：".$row['time']." 重選次數：";
+	if($n<$i && $row['ProductCode']==$recode[$n]){
+		$changetime=$retime[$n];
+		echo $changetime;
+		$n++;
+	}else{
+		$changetime=0;
+		echo $changetime;
+	}
+	@$Percent=(round($changetime/$row['time'],2)*100)."%";
+	echo " 重選率：".$Percent."<br/>";
+
+}
 echo "<br/>";
 mysqli_close($link);
 ?>

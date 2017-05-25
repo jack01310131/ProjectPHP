@@ -1,13 +1,3 @@
-<form action="" method="post">
-	商品種類：<select name="species">
-		<option>---</option>
-		<option value="水果">水果</option>
-		<option value="麵食">麵食</option>
-		<option value="飲料">飲料</option>
-	</select></br>
-	<input type='submit' value='選擇'>
-</form>
-
 <?php
 // require("sql/linksql.php");
 $link= @mysqli_connect(
@@ -17,9 +7,24 @@ $link= @mysqli_connect(
 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
-if(isset($_POST['species'])){
-	$species=$_POST['species'];
-	$result=mysqli_query($link,"SELECT MAX(Code) as max FROM product");
+$code=$_GET["code"];
+$name=$_GET["name"];
+$price=$_GET["price"];
+
+$result=mysqli_query($link,"SELECT species FROM product WHERE Code='$code' ");
+while ($row=mysqli_fetch_assoc($result)){
+	$species=$row['species'];
+}
+setcookie("Ramdom".$code,"",time()-3600);
+setcookie("Ramdom".$name,"",time()-3600);
+setcookie("Ramdom".$price,"",time()-3600);
+setcookie("Ramdom".$code."Quantity","",time()-3600);
+setcookie("Ramdom".$code."Remark","",time()-3600);
+
+
+
+
+$result=mysqli_query($link,"SELECT MAX(Code) as max FROM product");
 	while ($row=mysqli_fetch_assoc($result)){
 		$maxcode=$row['max'];
 	}
@@ -29,7 +34,7 @@ if(isset($_POST['species'])){
 		$result=mysqli_query($link," SELECT Code FROM product WHERE Code='$n' and species='$species' and Status='yes' ");
 		while ($row=mysqli_fetch_assoc($result)){
 			$Rporduct=$row['Code'];
-			mysqli_query($link," INSERT INTO ramdom (ProductCode, RamdomChange) VALUES ('$Rporduct','新增')");
+			mysqli_query($link," INSERT INTO ramdom (ProductCode, RamdomChange) VALUES ('$Rporduct','重選')");
 
 		}
 	}
@@ -43,8 +48,6 @@ if(isset($_POST['species'])){
 		setcookie("Ramdom".$row['Code']."Quantity","1",time()+3600);
 		setcookie("Ramdom".$row['Code']."Remark","無",time()+3600);
 	}
-
-
-}
+	header("Location: shoppingcart.php");
 
 mysqli_close($link);

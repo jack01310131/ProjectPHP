@@ -1,22 +1,33 @@
-﻿<?php
-session_start();
-require("sql/linksql.php");
+﻿<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/smoothness/jquery-ui.css" /> 
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+<div title="分析報導" id="anly001" style="padding: 0.5em; font-family: 新細明體; font-size: 1.17em; line-height: 1.5em; letter-spacing: 0.1em; display: block; text-align: justify; display: none;">
+<?php require("ramdomPorduct.php");?> </div>
+
+<a href="javascript: $('#anly001').dialog({autoOpen: true, show:{effect:'drop', direction:'right', duration: 1}, width: '640', height: 'auto', resizable: false});">隨機點餐</a>
+
+<?php
+session_start();
+// require("sql/linksql.php");
+
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
+mysqli_query($link,'SET NAMES utf8');
+
 if(isset($_SESSION['code'])){
 	$result=mysqli_query($link," SELECT * FROM product");
 	$userCode=$_SESSION["code"];
 	echo '<form action="" method="post">';
-	// $n=0;
+
 	while ($row=mysqli_fetch_assoc($result)){
 	echo $row['Name']." ";
 	echo '<input type="text" size="5" name="Quantity[]" value="0"/>
 		<input type="text" size="8" name="Remark[]" value="無"><br/>';
-	// $n++;
+
 	}	
 		echo "<input type='submit' value='訂購'/><br/>";
 		echo "<a href = 'logout.php' >登出</a>";

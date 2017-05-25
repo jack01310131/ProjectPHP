@@ -1,12 +1,12 @@
 <?php
 session_start();
-require("sql/linksql.php");
+// require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'a1043328',
-// 		'php');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 $memberCode=$_SESSION['code'];
 
@@ -21,9 +21,10 @@ while ($row=mysqli_fetch_assoc($result)){
 	送達時間：<input type='time' name='GetTime' value=<?php echo $time;?>><br/>
 	地址：<input type='text' name='Address' value=<?php echo $address;?>><br/>
 	<input type='submit' value='送出 '/><br/>
-	<a href = 'logout.php' >登出</a>
 </form>
 
+<br/><a href='shoppingcart.php'>購物車</a><br/>
+<a href = 'logout.php' >登出</a><br/>
 
 
 <?php
@@ -44,11 +45,19 @@ if(isset($_SESSION['code']))
 		while ($row=mysqli_fetch_assoc($result)){
 			$ProductCode=$row['Code'];
 			if (isset($_COOKIE[$row['Code']])) {
-			$price=$_COOKIE[$row['Price']];
-			$quantity=$_COOKIE[$ProductCode."Quantity"];
-			$remark=$_COOKIE[$ProductCode."Remark"];
-			$total=$price*$quantity;
-			mysqli_query($link," INSERT INTO list (invoice_Code,Produce_Code,Total_Amount,Total_Sum,Remarks) VALUES ('$invoice_Code','$ProductCode','$quantity','$total','$remark')");
+				$price=$_COOKIE[$row['Price']];
+				$quantity=$_COOKIE[$ProductCode."Quantity"];
+				$remark=$_COOKIE[$ProductCode."Remark"];
+				$total=$price*$quantity;
+				mysqli_query($link," INSERT INTO list (invoice_Code,Produce_Code,Total_Amount,Total_Sum,Remarks) VALUES ('$invoice_Code','$ProductCode','$quantity','$total','$remark')");
+			}
+			if (isset($_COOKIE["Ramdom".$row['Code']])) {
+				$price=$_COOKIE["Ramdom".$row['Price']];
+				$quantity=$_COOKIE["Ramdom".$ProductCode."Quantity"];
+				$remark=$_COOKIE["Ramdom".$ProductCode."Remark"];
+				$total=$price*$quantity;
+				mysqli_query($link," INSERT INTO list (invoice_Code,Produce_Code,Total_Amount,Total_Sum,Remarks) VALUES ('$invoice_Code','$ProductCode','$quantity','$total','$remark')");
+
 			}
 		}
 		echo "下單成功  將於2秒後回到首頁";

@@ -1,12 +1,12 @@
 ﻿<?php
 session_start();
-require("sql/linksql.php");
+// require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'a1043328',
-// 		'php');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 echo '<form action="" method="post">

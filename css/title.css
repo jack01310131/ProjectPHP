@@ -1,0 +1,23 @@
+.container {
+     width:98%;
+}
+.header{      /*區塊A*/ 
+     background-color: #074b7c;
+     height: 30px;
+     color: white;
+     text-align: center;
+     margin:0px auto;
+     padding:10px;
+}
+.reHome{
+  text-align:left;
+  font-family: 標楷體;
+  font-size: 30px;
+}
+.lonig{
+  text-align:right;
+  font-family: 標楷體;
+  font-size: 30px;
+  width:20%;
+  float:right;
+}

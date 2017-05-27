@@ -1,0 +1,41 @@
+.main{
+  background-color: red;
+  height:200px;
+  padding:10px;
+}
+.mainleft{
+  background-color: pink;
+  float:left;
+  height:200px;
+  width:40%;
+}
+.mainright{
+  background-color: green;
+  float:right;
+  height:200px;
+  width:60%;
+}
+
+.meals{
+  background-color: yellow;
+  height:500px;
+  padding:10px;
+}
+
+.mealsleft {
+  background-color: pink;
+  float:left;
+  height:500px;
+  width:20%;
+  
+  text-align: center;
+  font-size: 30px;
+}
+.mealsright{
+  background-color: green;
+  float:right;
+  height:500px;
+  width:80%;
+  text-align: center;
+  font-size: 30px;
+}

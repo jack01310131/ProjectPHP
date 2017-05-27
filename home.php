@@ -10,10 +10,10 @@
 
 			<div class="header" > 
 				<div class="lonig">
-				登入 註冊
+				<a href="log.php">登入</a> <a href="reg.php">註冊</a>
 				</div>
 				<div class="reHome">
-				回首頁
+				<a href="home.php">回首頁</a>
 				</div>
 			</div>
 

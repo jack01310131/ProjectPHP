@@ -1,0 +1,43 @@
+.main{
+  padding:10px;
+}
+.species{
+  background-color: yellow;
+  height:40px;
+  margin:0px auto;
+  text-align:center;
+  padding-top:10px;
+  font-family: 標楷體;
+  font-size: 30px;
+}
+
+
+.meals{
+  padding:10px;
+  text-align:center;
+  font-family: 標楷體;
+  font-size: 30px;
+}
+.footer { 
+    padding:10px;
+     background-color: #074b7c;
+     height: 30px;
+     color: white;
+     text-align: center;
+}
+  
+.footerleft{
+  background-color:pink;
+  text-align:left;
+  font-family: 標楷體;
+  font-size: 30px;
+  float:left;
+}
+.footerright{
+  background-color:pink;
+  text-align:right;
+  font-family: 標楷體;
+  font-size: 30px;
+  width:20%;
+  float:right;
+}

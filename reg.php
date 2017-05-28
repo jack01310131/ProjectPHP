@@ -1,29 +1,45 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-</head>
-<body>
-		<form action="" method="post">
-			帳號：<input type="text" name="UID"></br>
-			密碼：<input type="password" name="pwd"></br>
-			請再輸入一次密碼:<input type="password" name="pw2" /> <br>
-			姓名:<input type="text" name="name"></br>
-			性別:男<input type="radio" name="gender" value="male">女<input type="radio" name="gender" value="female"><br>
-			職業：<select name="job">
-					<option>---</option>
-					<option value="學生">學生</option>
-					<option value="教師">教師</option>
-					<option value="上班族">上班族</option>
-				</select></br>
-			email：<input type="text" name="email"></br>
-			電話：<input type="text" name="phone"></br>
-			生日:<input type="date" name="Bday"></br>
-			地址：<input type="text" name="address" /> <br>
-
-			<input type="submit" value="送出">
-		 </form>
-</body>
+﻿<html>
+	<head>
+		<title>外送輕易點</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="css/title.css" />
+		<link rel="stylesheet" type="text/css" href="css/log.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="header" > 
+				<div class="lonig">
+				<a href="log.php">登錄</a>
+				</div>
+				<div class="reHome">
+				<a href="home.php">回首頁</a>
+				</div>
+			</div>
+			<div class="main">
+				<div class="maincenter">
+					註冊<br/><br/>
+					<form action="" method="post">
+						帳號：<input type="text" name="UID"></br>
+						密碼：<input type="password" name="pwd"></br>
+						請再輸入一次密碼:<input type="password" name="pw2" /> <br>
+						姓名:<input type="text" name="name"></br>
+						性別:男<input type="radio" name="gender" value="male">女<input type="radio" name="gender" value="female"><br>
+						職業：<select name="job">
+								<option>---</option>
+								<option value="學生">學生</option>
+								<option value="教師">教師</option>
+								<option value="上班族">上班族</option>
+							</select></br>
+						email：<input type="text" name="email"></br>
+						電話：<input type="text" name="phone"></br>
+						生日:<input type="date" name="Bday"></br>
+						地址：<input type="text" name="address" /> <br>
+						<input type="submit" value="送出">
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
 
 

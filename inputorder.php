@@ -36,13 +36,13 @@
 
 
 <?php
-// require("sql/linksql.php");
+require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 if (isset($_POST['Name']) && isset($_POST['Price'])) {

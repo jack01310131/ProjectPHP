@@ -1,11 +1,11 @@
 <?php
 session_start();
-// require("sql/linksql.php");
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+require("sql/linksql.php");
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 
 mysqli_query($link,'SET NAMES utf8');
 ?>

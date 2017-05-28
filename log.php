@@ -16,7 +16,7 @@
 				<a href="home.php">回首頁</a>
 				</div>
 			</div>
-			<div class="mai"n>
+			<div class="main">
 			    <div class="maincenter">
 			    	登錄<br/><br/>
 			    	<form action="" method="post">
@@ -26,18 +26,19 @@
 						<a href="reg.php">註冊</a>
 					</form>
 			    </div>
+			</div>
 		</div>
 	</body>
 
 <?php
 session_start();
-// require("sql/linksql.php");
+require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 

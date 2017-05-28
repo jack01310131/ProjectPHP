@@ -32,13 +32,13 @@
 	    		<div class="meals">
 				    <?php
 					session_start();
-					// require("sql/linksql.php");
+					require("sql/linksql.php");
 
-					$link= @mysqli_connect(
-							'localhost',
-							'root',
-							'21427jack',
-							'phpproject');
+					// $link= @mysqli_connect(
+					// 		'localhost',
+					// 		'root',
+					// 		'21427jack',
+					// 		'phpproject');
 					mysqli_query($link,'SET NAMES utf8');
 
 
@@ -61,13 +61,13 @@
 	    		<div class="meals">
 				    <?php
 					
-					// require("sql/linksql.php");
+					require("sql/linksql.php");
 
-					$link= @mysqli_connect(
-							'localhost',
-							'root',
-							'21427jack',
-							'phpproject');
+					// $link= @mysqli_connect(
+					// 		'localhost',
+					// 		'root',
+					// 		'21427jack',
+					// 		'phpproject');
 					mysqli_query($link,'SET NAMES utf8');
 
 
@@ -90,13 +90,13 @@
 	    		<div class="meals">
 				    <?php
 					
-					// require("sql/linksql.php");
+					require("sql/linksql.php");
 
-					$link= @mysqli_connect(
-							'localhost',
-							'root',
-							'21427jack',
-							'phpproject');
+					// $link= @mysqli_connect(
+					// 		'localhost',
+					// 		'root',
+					// 		'21427jack',
+					// 		'phpproject');
 					mysqli_query($link,'SET NAMES utf8');
 
 
@@ -126,17 +126,15 @@
 	<body>
 </html>
 <?php
-// require("sql/linksql.php");
+require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
-	// 	echo "<input type='submit' value='訂購'/><br/>";
-	// 	echo "<a href = 'logout.php' >登出</a>";
-	// echo "</form>";
+
 	if (isset($_POST['Quantity'])) {
 		$j=0;
 		$result2=mysqli_query($link," SELECT * FROM product WHERE species='水果' ");

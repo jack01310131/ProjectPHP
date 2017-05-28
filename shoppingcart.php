@@ -1,12 +1,12 @@
 <?php
 session_start();
 $total=0;
-// require("sql/linksql.php");
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+require("sql/linksql.php");
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 if(isset($_SESSION['code']) ){
 	;
 }

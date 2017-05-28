@@ -1,0 +1,69 @@
+.main{
+  background-color: red;
+  height:200px;
+  padding:10px;
+}
+.mainleft{
+  background-color: #30F2DC;
+  float:left;
+  height:200px;
+  width:40%;
+  font-size: 30px;
+}
+.mainright{
+  background-color: green;
+  float:right;
+  height:200px;
+  width:60%;
+  font-size: 30px;
+}
+
+.meals{
+  background-color: yellow;
+  height:500px;
+  padding:10px;
+}
+
+.mealsleft {
+  background-color: pink;
+  float:left;
+  height:500px;
+  width:20%;
+  
+  text-align: center;
+  font-size: 30px;
+}
+.mealsright{
+  background-color: green;
+  float:right;
+  height:500px;
+  width:80%;
+  text-align: center;
+  font-size: 30px;
+}
+#hello0{
+  background-color: blue;
+}
+.maintop{
+  
+  padding:10px;
+  font-size: 20px;
+}
+.right{
+  background-color: pink;
+  text-align: center;
+  font-size: 15px;
+  float:right;
+
+}
+table{
+  text-align: center;
+  font-size: 25px;
+}
+.analze{
+  height:300px;
+  width:500px;
+  padding:10px;
+  font-size: 20px;
+
+}

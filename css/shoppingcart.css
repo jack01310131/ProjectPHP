@@ -1,0 +1,75 @@
+.main{
+  padding:10px;
+}
+.species{
+  background-color: yellow;
+  height:40px;
+  margin:0px auto;
+  padding-top:10px;
+  font-family: 標楷體;
+  font-size: 30px;
+}
+
+
+.meals{
+  padding:10px;
+  font-family: 標楷體;
+  font-size: 30px;
+}
+.footer { 
+    padding:10px;
+     background-color: #074b7c;
+     width: 20%;
+     color: white;
+     text-align: center;
+
+     position:fixed;
+      bottom:0;
+      right:0;
+}
+  
+.footerright{
+  background-color:pink;
+  text-align:center;
+  font-family: 標楷體;
+  font-size: 20px;
+  width:100%;
+  float:right;
+}
+button{
+  width:60px;
+  height:30px;
+  font-family: 標楷體;
+  font-size: 20px;
+   border-top: 1px solid #97f7a7;
+   background: #88f08e;
+   background: -webkit-gradient(linear, left top, left bottom, from(#34a139), to(#88f08e));
+   background: -webkit-linear-gradient(top, #34a139, #88f08e);
+   background: -moz-linear-gradient(top, #34a139, #88f08e);
+   background: -ms-linear-gradient(top, #34a139, #88f08e);
+   background: -o-linear-gradient(top, #34a139, #88f08e);
+   padding: 2px 4px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-family: Georgia, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+button:hover {
+   border-top-color: #57bcff;
+   background: #57bcff;
+   color: #ccc;
+   }
+button:active {
+   border-top-color: #1b435e;
+   background: #1b435e;
+   }
+img{
+  width: 50px;
+}

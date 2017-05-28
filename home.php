@@ -17,18 +17,18 @@
 				</div>
 			</div>
 
-			<div class=main>
-				<div class=mainleft>
-      				
+			<div class="main">
+				<div class="mainleft">
+      				123123
 				</div>
-				<div class=mainright>
+				<div class="mainright">
       
 				</div>
 			</div>
 
-			<div class=meals>
+			<div class="meals">
     
-				<div class=mealsleft>
+				<div class="mealsleft">
 					<ul type="none">
 						<li id="clickme1">主餐</li>
 						<li id="clickme2">飲料</li>
@@ -36,19 +36,19 @@
 						<li id="clickme4">附餐</li>
 					</ul>
 				</div>
-				<div class=mealsright id="hello0">
+				<div class="mealsright" id="hello0" >
 				hello0
 				</div>
-				<div class=mealsright id="hello1">
+				<div class="mealsright" id="hello1">
 				hello1
 				</div>
-				<div class=mealsright id="hello2">
+				<div class="mealsright" id="hello2">
 				hello2
 				</div>
-				<div class=mealsright id="hello3">
+				<div class="mealsright" id="hello3">
 				hello3
 				</div>
-				<div class=mealsright id="hello4">
+				<div class="mealsright" id="hello4">
 				hello4
 				</div>
 			</div>

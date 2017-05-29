@@ -52,7 +52,11 @@
 				hello4
 				</div>
 			</div>
-
+		</div>
+		<div class="floor">
+			<div class="floorright">
+				電話：0000-0000
+			</div>
 		</div>
 
 		<!-- Scripts -->

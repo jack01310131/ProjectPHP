@@ -18,14 +18,14 @@
 }
 .footer { 
     padding:10px;
-     background-color: #074b7c;
-     width: 20%;
-     color: white;
-     text-align: center;
+    background-color: #074b7c;
+    width: 20%;
+    color: white;
+    text-align: center;
 
-     position:fixed;
-      bottom:0;
-      right:0;
+    position:fixed;
+    bottom:0;
+    right:0;
 }
   
 .footerright{

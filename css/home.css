@@ -67,3 +67,20 @@ table{
   font-size: 20px;
 
 }
+.floor{
+  padding:10px;
+  position:fixed;
+  bottom:0;
+  width: 98%;
+  background-color:#BB88EB;
+  height:50px;
+}
+.floorright{
+  padding:10px;
+  background-color:#4DF79C;
+  height:50px;
+  width: 30%;
+  font-size: 20px;
+  text-align:right;
+  float:right;
+}

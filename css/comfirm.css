@@ -1,0 +1,23 @@
+.main{
+  /*background-color: red;*/
+  height:400px;
+  padding:10px;
+}
+.mainleft{
+  background-color: #D2F5C9;
+  float:left;
+  height:400px;
+  width:40%;
+  font-size: 15px;
+}
+.mainright{
+  background-color: #D2F5C9;
+  float:right;
+  height:400px;
+  width:57%;
+  font-size: 20px;
+  padding-right :1%;
+  padding-left  :1%;
+  /*border-left-style:solid;*/
+  border-width:1%;
+}

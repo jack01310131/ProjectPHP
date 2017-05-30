@@ -1,11 +1,11 @@
 <?php
 session_start();
-require("sql/linksql.php");
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+// require("sql/linksql.php");
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 
 mysqli_query($link,'SET NAMES utf8');
 ?>
@@ -29,14 +29,14 @@ mysqli_query($link,'SET NAMES utf8');
 
 			<div class="maintop">
 				<?php
-				$result=mysqli_query($link," SELECT * FROM invoice ");
+				$result=mysqli_query($link," SELECT * FROM invoice,member WHERE invoice.Member_Code=member.code ");
 
 				while ($row=mysqli_fetch_assoc($result) )
 				{
 					if ($row['status']=="no")
 					{
 						echo "第 ".$row['Code']."筆訂單";
-						echo "&nbsp&nbsp會員編號：".$row['Member_Code']."&nbsp&nbsp取餐時間：".$row['Recipient_GetTime']."&nbsp&nbsp地址：".$row['Recipient_Address'];
+						echo "&nbsp&nbsp會員編號：".$row['Member_Code']." 會員姓名：".$row['name']."&nbsp&nbsp取餐時間：".$row['Recipient_GetTime']."&nbsp&nbsp地址：".$row['Recipient_Address'];
 						echo "<br/>餐點內容：<br/>";
 						?>
 						<div class="right">

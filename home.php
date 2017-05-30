@@ -19,10 +19,10 @@
 
 			<div class="main">
 				<div class="mainleft">
-      				123123
+      				<img src="img/logo.png" width=100%>
 				</div>
 				<div class="mainright">
-      
+					<img src="img/click.png" width=100% height=100%>
 				</div>
 			</div>
 

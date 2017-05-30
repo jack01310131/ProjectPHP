@@ -4,6 +4,8 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/title.css" />
 		<link rel="stylesheet" type="text/css" href="css/log.css" />
+		<link rel="stylesheet" type="text/css" href="css/button.css" />
+
 	</head>
 	<body>
 		<div class="container">
@@ -18,13 +20,15 @@
 			</div>
 			<div class="main">
 			    <div class="maincenter">
-			    	登錄<br/><br/>
+			    	<img src="img/logo.png" style="width:500px">
+			    	<!-- <br/>登錄 -->
+			    	<br/><br/>
 			    	<form action="" method="post">
-						帳號：<input type="text" name="UID"></br>
-						密碼：<input type="password" name="pwd"></br></br></br>
-						<input type="submit" value="登錄" style="width:100px;height:50px;"></br></br>
-						<a href="reg.php">註冊</a>
+						帳號：<input type="text" name="UID" style="height:27px;"></br>
+						密碼：<input type="password" name="pwd" style="height:27px;"></br></br></br>
+						<input type="submit" id="button1" value="登錄" style="width:100px;height:50px;"></br></br>
 					</form>
+					<button onclick="self.location.href='reg.php'" id='button1'>註冊</button>
 			    </div>
 			</div>
 		</div>
@@ -32,17 +36,17 @@
 
 <?php
 session_start();
-require("sql/linksql.php");
+// require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 
-echo "<br><br><a href=reg.php>註冊<br></a>";
+
 if (isset($_POST['UID'])){
 
 	$UID=$_POST["UID"];

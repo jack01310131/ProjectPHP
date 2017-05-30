@@ -4,6 +4,8 @@
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/title.css" />
 		<link rel="stylesheet" type="text/css" href="css/log.css" />
+		<link rel="stylesheet" type="text/css" href="css/button.css" />
+
 	</head>
 	<body>
 		<div class="container">
@@ -33,8 +35,8 @@
 						email：<input type="text" name="email"></br>
 						電話：<input type="text" name="phone"></br>
 						生日:<input type="date" name="Bday"></br>
-						地址：<input type="text" name="address" /> <br>
-						<input type="submit" value="送出">
+						地址：<input type="text" name="address" /> <br><br>
+						<input type="submit" id="button1" value="送出">
 					</form>
 				</div>
 			</div>

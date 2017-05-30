@@ -1,12 +1,12 @@
 <?php
 session_start();
 $total=0;
-require("sql/linksql.php");
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+// require("sql/linksql.php");
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 if(isset($_SESSION['code']) ){
 	;
 }
@@ -33,8 +33,7 @@ else
 			</div>
 
 			<div class="meals">
-				檢視並確認訂單<br/>
-				我的訂單
+				<div class="center"><h1>我的訂單</h1></div>
 			</div>
 
 			<div class="main">
@@ -47,6 +46,7 @@ else
 					mysqli_query($link,'SET NAMES utf8');
 
 					$result=mysqli_query($link," SELECT * FROM product WHERE species='水果' ");
+					echo "<table>";
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE[$row['Code']])) {
@@ -54,12 +54,12 @@ else
 						$price=$_COOKIE[$row['Price']];
 						$quantity=$_COOKIE[$code."Quantity"];
 						$remark=$_COOKIE[$code."Remark"];
-						echo "<img src=img/".$code.".png >";
-						echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a> 名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
-						echo "<br/>";
+						echo "<tr><td><img src=img/".$code.".png ></td>";
+						echo "<td><a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark."</td></tr>";
 						$total+=$price*$quantity;
 						}
 					}
+					echo "</table>";
 					?>
 	    		</div>
   			</div>
@@ -73,6 +73,7 @@ else
 					mysqli_query($link,'SET NAMES utf8');
 
 					$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
+					echo "<table>";
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE[$row['Code']])) {
@@ -80,12 +81,12 @@ else
 						$price=$_COOKIE[$row['Price']];
 						$quantity=$_COOKIE[$code."Quantity"];
 						$remark=$_COOKIE[$code."Remark"];
-						echo "<img src=img/".$code.".png >";
-						echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a> 名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
-						echo "<br/>";
+						echo "<tr><td><img src=img/".$code.".png ></td>";
+						echo "<td><a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark."</td></tr>";
 						$total+=$price*$quantity;
 						}
 					}
+					echo "</table>";
 					?>
 	    		</div>
   			</div>
@@ -99,6 +100,7 @@ else
 					mysqli_query($link,'SET NAMES utf8');
 
 					$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
+					echo "<table>";
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE[$row['Code']])) {
@@ -106,12 +108,12 @@ else
 						$price=$_COOKIE[$row['Price']];
 						$quantity=$_COOKIE[$code."Quantity"];
 						$remark=$_COOKIE[$code."Remark"];
-						echo "<img src=img/".$code.".png >";
-						echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a> 名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
-						echo "<br/>";
+						echo "<tr><td><img src=img/".$code.".png ></td>";
+						echo "<td><a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark."</td></tr>";
 						$total+=$price*$quantity;
 						}
 					}
+					echo "</table>";
 					?>
 	    		</div>
   			</div>
@@ -129,6 +131,7 @@ else
 					mysqli_query($link,'SET NAMES utf8');
 
 					$result=mysqli_query($link," SELECT * FROM product WHERE species='水果' ");
+					echo "<table id='ss'>";
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
@@ -137,15 +140,16 @@ else
 							$quantity=$_COOKIE["Ramdom".$code."Quantity"];
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "<form action='changequantity.php?code=$code&R=yes' method='post'>";
-							echo "<img src=img/".$code.".png >";
-							echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a> 名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
+							echo "<tr><td><img src=img/".$code.".png ></td><td>";
+							echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
 							echo " <a href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a> ";
-							echo "<input type='text'name='quantity'>
-								<input type='submit' value='數量變更'>
+							echo "</td><td><input type='text'name='quantity'></td><td>
+								<input type='submit' value='數量變更'></td></tr>
 								</form>";
 							$total+=$price*$quantity;
 						}
 					}
+					echo "<table>";
 					?>
 	    		</div>
   			</div>
@@ -159,6 +163,7 @@ else
 					mysqli_query($link,'SET NAMES utf8');
 
 					$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
+					echo "<table id='ss'>";
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
@@ -167,15 +172,16 @@ else
 							$quantity=$_COOKIE["Ramdom".$code."Quantity"];
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "<form action='changequantity.php?code=$code&R=yes' method='post'>";
-							echo "<img src=img/".$code.".png >";
-							echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a> 名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
+							echo "<tr><td><img src=img/".$code.".png ></td><td>";
+							echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
 							echo " <a href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a> ";
-							echo "<input type='text'name='quantity'>
-								<input type='submit' value='數量變更'>
+							echo "</td><td><input type='text'name='quantity'></td><td>
+								<input type='submit' value='數量變更'></td></tr>
 								</form>";
 							$total+=$price*$quantity;
 						}
 					}
+					echo "<table>";
 					?>
 	    		</div>
   			</div>
@@ -189,6 +195,7 @@ else
 					mysqli_query($link,'SET NAMES utf8');
 
 					$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
+					echo "<table id='ss'>";
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
@@ -197,15 +204,16 @@ else
 							$quantity=$_COOKIE["Ramdom".$code."Quantity"];
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "<form action='changequantity.php?code=$code&R=yes' method='post'>";
-							echo "<img src=img/".$code.".png >";
-							echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a> 名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
+							echo "<tr><td><img src=img/".$code.".png ></td><td>";
+							echo "<a href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
 							echo " <a href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a> ";
-							echo "<input type='text'name='quantity'>
-								<input type='submit' value='數量變更'>
+							echo "</td><td><input type='text'name='quantity'></td><td>
+								<input type='submit' value='數量變更'></td></tr>
 								</form>";
 							$total+=$price*$quantity;
 						}
 					}
+					echo "<table>";
 					?>
 	    		</div>
   			</div>

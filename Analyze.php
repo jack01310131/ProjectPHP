@@ -1,13 +1,13 @@
 <?php
 require("Config/GoogleChart.php");
 
-require("sql/linksql.php");
+// require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 ?>
 <html>
@@ -22,7 +22,7 @@ mysqli_query($link,'SET NAMES utf8');
 		<div class="container">
 			<div class="header" > 
 				<div class="lonig">
-				<a href="Order_overview.php">訂單總攬</a> <a href="logout.php">登出</a>
+				<a href="Order_overview.php">訂單總覽</a> <a href="logout.php">登出</a>
 				</div>
 				<div class="reHome">
 				<a href="home.php">回首頁</a>

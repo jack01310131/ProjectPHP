@@ -43,11 +43,6 @@ $( "#clickme2" ).on('click',function(){
     $("#hello4").slideToggle();
     $("#hello2").slideToggle();
   }
-  
-  // $("#hello2").slideToggle();
-  // $("#hello1").hide(1);
-  // $("#hello3").hide(1);
-  // $("#hello4").hide(1);
   if($('#hello0').is(':hidden')==false){
     $("#hello0").slideToggle();
     $("#hello2").slideToggle();
@@ -71,10 +66,6 @@ $( "#clickme3" ).on('click',function(){
     $("#hello4").slideToggle();
     $("#hello3").slideToggle();
   }
-  // $("#hello3").slideToggle();
-  // $("#hello2").hide(1);
-  // $("#hello1").hide(1);
-  // $("#hello4").hide(1);
   if($('#hello0').is(':hidden')==false){
     $("#hello0").slideToggle();
     $("#hello3").slideToggle();
@@ -97,10 +88,6 @@ $( "#clickme4" ).on('click',function(){
     $("#hello1").slideToggle();
     $("#hello4").slideToggle();
   }
-  // $("#hello4").slideToggle();
-  // $("#hello2").hide(1);
-  // $("#hello3").hide(1);
-  // $("#hello1").hide(1);
   if($('#hello0').is(':hidden')==false){
     $("#hello0").slideToggle();
     $("#hello4").slideToggle();

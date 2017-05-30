@@ -1,21 +1,28 @@
 .main{
-  background-color: red;
+  background-color: #FFF8D1;
   height:200px;
   padding:10px;
 }
 .mainleft{
-  background-color: #30F2DC;
+  /*background-color: #30F2DC;*/
   float:left;
-  height:200px;
-  width:40%;
+  height:190px;
+  width:48%;
   font-size: 30px;
+  padding-left:1%;
+  padding-right:1%;
+  padding-top:10px;
 }
 .mainright{
-  background-color: green;
+  /*background-color: green;*/
   float:right;
-  height:200px;
-  width:60%;
+  height:180px;
+  width:48%;
   font-size: 30px;
+  padding-left:1%;
+  padding-right:1%;
+  padding-top:10px;
+  padding-bottom:10px;
 }
 
 .meals{
@@ -58,7 +65,8 @@
 }
 table{
   text-align: center;
-  font-size: 25px;
+  font-size: 20px;
+  width: 500px;
 }
 .analze{
   height:300px;
@@ -70,8 +78,9 @@ table{
 .floor{
   padding:10px;
   position:fixed;
+  left: 9.5%;
   bottom:0;
-  width: 98%;
+  width: 80%;
   background-color:#BB88EB;
   height:50px;
 }

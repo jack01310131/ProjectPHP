@@ -1,12 +1,12 @@
 <?php
 session_start();
-require("sql/linksql.php");
+// require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 $memberCode=$_SESSION['code'];
 
@@ -37,7 +37,7 @@ $total=0;
 		<title>外送輕易點</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/title.css" />
-		<link rel="stylesheet" type="text/css" href="css/home.css" />
+		<link rel="stylesheet" type="text/css" href="css/comfirm.css" />
 
 	</head>
 	<body>
@@ -144,6 +144,7 @@ $total=0;
 					?>
 				</div>
 				<div class="mainright">
+					<br>
 					<form action='' method='post' onsubmit='return show_confirm()'>
 						送達時間：<input type='time' name='GetTime' value=<?php echo $time;?>><br/>
 						地址：<input type='text' name='Address' value=<?php echo $address;?>><br/>
@@ -160,13 +161,13 @@ $total=0;
 <html>
 
 <?php
-require("sql/linksql.php");
+// require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 if(isset($_SESSION['code']))
 {

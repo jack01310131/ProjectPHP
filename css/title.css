@@ -1,8 +1,9 @@
 .container {
-     width:100%;
+     width:80%;
+     margin:0px auto;
 }
-.header{      /*區塊A*/ 
-     background-color: #074b7c;
+.header{     
+     background-color: #9ECEF7;
      height: 30px;
      color: white;
      text-align: center;
@@ -10,14 +11,19 @@
      padding:10px;
 }
 .reHome{
+  color:;
   text-align:left;
-  font-family: 標楷體;
-  font-size: 30px;
+  font-family: "標楷體";
+  font-size: 25px;
 }
 .lonig{
   text-align:right;
-  font-family: 標楷體;
-  font-size: 30px;
+  font-family: "標楷體";
+  font-size: 25px;
   width:50%;
   float:right;
+}
+a{
+  color:black;
+  text-decoration:none;
 }

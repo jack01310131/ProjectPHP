@@ -26,21 +26,21 @@ session_start();
 				<a href="home.php">回首頁</a>
 				</div>
 			</div>
-			
+
 			<div class="main">
-    			<div class="species">
+    			<div class="species" id="species1">
       			水果
     			</div>
-	    		<div class="meals">
+	    		<div class="meals" id="meals1">
 				    <?php
 					
-					// require("sql/linksql.php");
+					require("sql/linksql.php");
 
-					$link= @mysqli_connect(
-							'localhost',
-							'root',
-							'21427jack',
-							'phpproject');
+					// $link= @mysqli_connect(
+					// 		'localhost',
+					// 		'root',
+					// 		'21427jack',
+					// 		'phpproject');
 					mysqli_query($link,'SET NAMES utf8');
 
 
@@ -56,26 +56,27 @@ session_start();
 						}
 						echo "<table>";
 					?>
-	     		</div>
+				</div>
   			</div>
-  			<div class="main">
-    			<div class="species">
+
+  			<div class="main" >
+    			<div class="species" id="species2">
       			飲料
     			</div>
-	    		<div class="meals">
+	    		<div class="meals" id="meals2">
 				    <?php
 					
-					// require("sql/linksql.php");
+					require("sql/linksql.php");
 
-					$link= @mysqli_connect(
-							'localhost',
-							'root',
-							'21427jack',
-							'phpproject');
+					// $link= @mysqli_connect(
+					// 		'localhost',
+					// 		'root',
+					// 		'21427jack',
+					// 		'phpproject');
 					mysqli_query($link,'SET NAMES utf8');
 
 
-						echo '<form action="" method="post">';
+						// echo '<form action="" method="post">';
 						$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
 						$userCode=$_SESSION["code"];
 						echo "<table >";
@@ -90,23 +91,23 @@ session_start();
 	     		</div>
   			</div>
   			<div class="main">
-    			<div class="species">
+    			<div class="species" id="species3">
       			麵食
     			</div>
-	    		<div class="meals">
+	    		<div class="meals" id="meals3">
 				    <?php
 					
-					// require("sql/linksql.php");
+					require("sql/linksql.php");
 
-					$link= @mysqli_connect(
-							'localhost',
-							'root',
-							'21427jack',
-							'phpproject');
+					// $link= @mysqli_connect(
+					// 		'localhost',
+					// 		'root',
+					// 		'21427jack',
+					// 		'phpproject');
 					mysqli_query($link,'SET NAMES utf8');
 
 
-						echo '<form action="" method="post">';
+						// echo '<form action="" method="post">';
 						$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
 						$userCode=$_SESSION["code"];
 						echo "<table >";
@@ -133,16 +134,17 @@ session_start();
 		    </form>
 		    </div>
 		</div>
+
 	<body>
 </html>
 <?php
-// require("sql/linksql.php");
+require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 	if (isset($_POST['Quantity'])) {
@@ -159,7 +161,7 @@ mysqli_query($link,'SET NAMES utf8');
 				if($Q>0){
 					setcookie($row['Code'],$row['Code'],time()+3600);
 					setcookie($row['Name'],$row['Name'],time()+3600);
-					setcookie($row['Price'],$row['Price'],time()+3600);
+					setcookie($code.$row['Price'],$row['Price'],time()+3600);
 					setcookie($code."Quantity",$Q,time()+3600);
 					setcookie($code."Remark",$R,time()+3600);
 				}
@@ -176,7 +178,7 @@ mysqli_query($link,'SET NAMES utf8');
 				if($Q>0){
 					setcookie($row['Code'],$row['Code'],time()+3600);
 					setcookie($row['Name'],$row['Name'],time()+3600);
-					setcookie($row['Price'],$row['Price'],time()+3600);
+					setcookie($code.$row['Price'],$row['Price'],time()+3600);
 					setcookie($code."Quantity",$Q,time()+3600);
 					setcookie($code."Remark",$R,time()+3600);
 				}
@@ -192,7 +194,7 @@ mysqli_query($link,'SET NAMES utf8');
 				if($Q>0){
 					setcookie($row['Code'],$row['Code'],time()+3600);
 					setcookie($row['Name'],$row['Name'],time()+3600);
-					setcookie($row['Price'],$row['Price'],time()+3600);
+					setcookie($code.$row['Price'],$row['Price'],time()+3600);
 					setcookie($code."Quantity",$Q,time()+3600);
 					setcookie($code."Remark",$R,time()+3600);
 				}

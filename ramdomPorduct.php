@@ -9,12 +9,12 @@
 </form>
 
 <?php
-// require("sql/linksql.php");
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+require("sql/linksql.php");
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 if(isset($_POST['species'])){
@@ -39,7 +39,7 @@ if(isset($_POST['species'])){
 		echo "商品價格：".$row['Price']."<br/>";
 		setcookie("Ramdom".$row['Code'],$row['Code'],time()+3600);
 		setcookie("Ramdom".$row['Name'],$row['Name'],time()+3600);
-		setcookie("Ramdom".$row['Price'],$row['Price'],time()+3600);
+		setcookie("Ramdom".$row['Name'].$row['Price'],$row['Price'],time()+3600);
 		setcookie("Ramdom".$row['Code']."Quantity","1",time()+3600);
 		setcookie("Ramdom".$row['Code']."Remark","無",time()+3600);
 	}

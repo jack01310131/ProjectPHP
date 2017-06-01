@@ -17,7 +17,7 @@ while ($row=mysqli_fetch_assoc($result)){
 }
 setcookie("Ramdom".$code,"",time()-3600);
 setcookie("Ramdom".$name,"",time()-3600);
-setcookie("Ramdom".$price,"",time()-3600);
+setcookie("Ramdom".$name.$price,"",time()-3600);
 setcookie("Ramdom".$code."Quantity","",time()-3600);
 setcookie("Ramdom".$code."Remark","",time()-3600);
 
@@ -44,7 +44,7 @@ $result=mysqli_query($link,"SELECT MAX(Code) as max FROM product");
 		echo "商品價格：".$row['Price']."<br/>";
 		setcookie("Ramdom".$row['Code'],$row['Code'],time()+3600);
 		setcookie("Ramdom".$row['Name'],$row['Name'],time()+3600);
-		setcookie("Ramdom".$row['Price'],$row['Price'],time()+3600);
+		setcookie("Ramdom".$row['Name'].$row['Price'],$row['Price'],time()+3600);
 		setcookie("Ramdom".$row['Code']."Quantity","1",time()+3600);
 		setcookie("Ramdom".$row['Code']."Remark","無",time()+3600);
 	}

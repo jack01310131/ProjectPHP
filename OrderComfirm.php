@@ -62,7 +62,7 @@ $total=0;
 						$code=$row['Code'];
 						if (isset($_COOKIE[$row['Code']])) {
 						$name=$_COOKIE[$row['Name']];
-						$price=$_COOKIE[$row['Price']];
+						$price=$_COOKIE[$code.$row['Price']];
 						$quantity=$_COOKIE[$code."Quantity"];
 						$remark=$_COOKIE[$code."Remark"];
 						echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
@@ -75,7 +75,7 @@ $total=0;
 						$code=$row['Code'];
 						if (isset($_COOKIE[$row['Code']])) {
 						$name=$_COOKIE[$row['Name']];
-						$price=$_COOKIE[$row['Price']];
+						$price=$_COOKIE[$code.$row['Price']];
 						$quantity=$_COOKIE[$code."Quantity"];
 						$remark=$_COOKIE[$code."Remark"];
 						echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
@@ -88,7 +88,7 @@ $total=0;
 						$code=$row['Code'];
 						if (isset($_COOKIE[$row['Code']])) {
 						$name=$_COOKIE[$row['Name']];
-						$price=$_COOKIE[$row['Price']];
+						$price=$_COOKIE[$code.$row['Price']];
 						$quantity=$_COOKIE[$code."Quantity"];
 						$remark=$_COOKIE[$code."Remark"];
 						echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
@@ -107,7 +107,7 @@ $total=0;
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
 							$name=$_COOKIE["Ramdom".$row['Name']];
-							$price=$_COOKIE["Ramdom".$row['Price']];
+							$price=$_COOKIE["Ramdom".$row['Name'].$row['Price']];
 							$quantity=$_COOKIE["Ramdom".$code."Quantity"];
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
@@ -120,7 +120,7 @@ $total=0;
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
 							$name=$_COOKIE["Ramdom".$row['Name']];
-							$price=$_COOKIE["Ramdom".$row['Price']];
+							$price=$_COOKIE["Ramdom".$row['Name'].$row['Price']];
 							$quantity=$_COOKIE["Ramdom".$code."Quantity"];
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
@@ -133,7 +133,7 @@ $total=0;
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
 							$name=$_COOKIE["Ramdom".$row['Name']];
-							$price=$_COOKIE["Ramdom".$row['Price']];
+							$price=$_COOKIE["Ramdom".$row['Name'].$row['Price']];
 							$quantity=$_COOKIE["Ramdom".$code."Quantity"];
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
@@ -161,13 +161,13 @@ $total=0;
 <html>
 
 <?php
-// require("sql/linksql.php");
+require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 if(isset($_SESSION['code']))
 {
@@ -188,7 +188,7 @@ if(isset($_SESSION['code']))
 			$ProductCode=$row['Code'];
 			if (isset($_COOKIE[$row['Code']])) {
 				$name=$_COOKIE[$row['Name']];
-				$price=$_COOKIE[$row['Price']];
+				$price=$_COOKIE[$ProductCode.$row['Price']];
 				$quantity=$_COOKIE[$ProductCode."Quantity"];
 				$remark=$_COOKIE[$ProductCode."Remark"];
 				$total=$price*$quantity;
@@ -196,13 +196,13 @@ if(isset($_SESSION['code']))
 				
 				setcookie($ProductCode,"",time()-3600);
 				setcookie($name,"",time()-3600);
-				setcookie($price,"",time()-3600);
+				setcookie($ProductCode.$price,"",time()-3600);
 				setcookie($ProductCode."Quantity","",time()-3600);
 				setcookie($ProductCode."Remark","",time()-3600);
 			}
 			if (isset($_COOKIE["Ramdom".$row['Code']])) {
 				$name=$_COOKIE["Ramdom".$row['Name']];
-				$price=$_COOKIE["Ramdom".$row['Price']];
+				$price=$_COOKIE["Ramdom".$row['Name'].$row['Price']];
 				$quantity=$_COOKIE["Ramdom".$ProductCode."Quantity"];
 				$remark=$_COOKIE["Ramdom".$ProductCode."Remark"];
 				$total=$price*$quantity;
@@ -210,7 +210,7 @@ if(isset($_SESSION['code']))
 				
 				setcookie("Ramdom".$ProductCode,"",time()-3600);
 				setcookie("Ramdom".$name,"",time()-3600);
-				setcookie("Ramdom".$price,"",time()-3600);
+				setcookie("Ramdom".$row['Name'].$price,"",time()-3600);
 				setcookie("Ramdom".$ProductCode."Quantity","",time()-3600);
 				setcookie("Ramdom".$ProductCode."Remark","",time()-3600);
 			}

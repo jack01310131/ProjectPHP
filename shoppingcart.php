@@ -168,7 +168,7 @@ else
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "<form action='changequantity.php?code=$code&R=yes' method='post'>";
 							echo "<tr><td><img src=img/".$code.".jpg ></td><td>";
-							echo "<a id='aclick' href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
+							echo "<a id='aclick' href='delRShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
 							echo "</td><td><input type='text'name='quantity' size='1'></td><td>																	
 								<input type='submit' value='數量變更'></td></tr>											
 								</form>";
@@ -199,7 +199,7 @@ else
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "<form action='changequantity.php?code=$code&R=yes' method='post'>";
 							echo "<tr><td><img src=img/".$code.".jpg ></td><td>";
-							echo "<a id='aclick' href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
+							echo "<a id='aclick' href='delRShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
 							echo "</td><td><input type='text'name='quantity' size='1'></td><td>																	
 								<input type='submit' value='數量變更' ></td></tr>											
 								</form>";
@@ -230,7 +230,7 @@ else
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "<form action='changequantity.php?code=$code&R=yes' method='post'>";
 							echo "<tr><td><img src=img/".$code.".jpg ></td><td>";
-							echo "<a id='aclick' href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
+							echo "<a id='aclick' href='delRShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
 							echo "</td><td><input type='text'name='quantity' size='1'></td><td>																	
 								<input type='submit' value='數量變更'></td></tr>											
 								</form>";
@@ -261,7 +261,7 @@ else
 							$remark=$_COOKIE["Ramdom".$code."Remark"];
 							echo "<form action='changequantity.php?code=$code&R=yes' method='post'>";
 							echo "<tr><td><img src=img/".$code.".jpg ></td><td>";
-							echo "<a id='aclick' href='delShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
+							echo "<a id='aclick' href='delRShopingCart.php?code=$code&name=$row[Name]&price=$row[Price]'>刪除</a></td><td><a  id='aclick' href='reramdom.php?code=$code&name=$row[Name]&price=$row[Price]'>重選</a></td><td>".$name."</td><td>單價：".$price."</td><td>數量：".$quantity."</td><td>備註：".$remark;
 							echo "</td><td><input type='text'name='quantity' size='1'></td><td>																	
 								<input type='submit' value='數量變更'></td></tr>											
 								</form>";

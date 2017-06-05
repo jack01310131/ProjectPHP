@@ -1,3 +1,14 @@
+<?php
+require("sql/linksql.php");
+
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
+mysqli_query($link,'SET NAMES utf8');
+
+?>
 <html>
 	<head>
 		<title>外送輕易點</title>
@@ -40,17 +51,116 @@
 				hello0
 				</div>
 				<div class="mealsright" id="hello1">
-				hello1
+				<h3>飯食</h3>
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='飯食' ");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%3==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
 				</div>
 				<div class="mealsright" id="hello2">
-				hello2
+				<h3>麵食</h3>
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%3==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
 				</div>
 				<div class="mealsright" id="hello3">
-				hello3
+				<h3>飲料</h3>
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%3==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
 				</div>
 				<div class="mealsright" id="hello4">
-				hello4
+				<h3>其他</h3>
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='其他' ");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%3==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
 				</div>
+			</div>
+			<div class="hot">
+				<h1>熱門商品</h1>
+				<h3>飯食</h3>
+				<?php
+				$n=1;
+				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='飯食' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				while ($row=mysqli_fetch_assoc($result)) {
+					$code=$row['Produce_Code'];
+					echo $n.". ".$row['Name']."<img src='img/".$code.".jpg'><br/>";
+					$n++;
+				}
+				?>
+				<h3>麵食</h3>
+				<?php
+				$n=1;
+				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='麵食' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				while ($row=mysqli_fetch_assoc($result)) {
+					$code=$row['Produce_Code'];
+					echo $n.". ".$row['Name']."<img src='img/".$code.".jpg'><br/>";
+					$n++;
+				}
+				?>
+				<h3>飲料</h3>
+				<?php
+				$n=1;
+				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='飲料' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				while ($row=mysqli_fetch_assoc($result)) {
+					$code=$row['Produce_Code'];
+					echo $n.". ".$row['Name']."<img src='img/".$code.".jpg'><br/>";
+					$n++;
+				}
+				?>
+				<h3>其他</h3>
+				<?php
+				$n=1;
+				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='其他' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				while ($row=mysqli_fetch_assoc($result)) {
+					$code=$row['Produce_Code'];
+					echo $n.". ".$row['Name']." <img src='img/".$code.".jpg'><br/>";
+					$n++;
+				}
+				?>
 			</div>
 		</div>
 		<div class="floor">

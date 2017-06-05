@@ -42,7 +42,7 @@ mysqli_query($link,'SET NAMES utf8');
 						<div class="right">
 						<?php
 						echo "<br/>總金額：".$row['totalprice'];
-						echo "&nbsp&nbsp<a href='Config/finshOrder.php?Code=$row[Code]'>完成</a>&nbsp&nbsp<a href='Config/delOrder.php?Code=$row[Code]'>刪除</a><br/><br/>";
+						echo "&nbsp&nbsp<a href='finshOrder.php?Code=$row[Code]'>完成</a>&nbsp&nbsp<a href='delOrder.php?Code=$row[Code]'>刪除</a><br/><br/>";
 						?>
 							</div>
 						<?php

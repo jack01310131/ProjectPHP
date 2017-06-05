@@ -26,7 +26,7 @@
 }
 
 .meals{
-  background-color: yellow;
+  /*background-color: yellow;*/
   height:500px;
   padding:10px;
 }
@@ -41,7 +41,7 @@
   font-size: 30px;
 }
 .mealsright{
-  background-color: green;
+  background-color: #FFF8D1;
   float:right;
   height:500px;
   width:80%;
@@ -96,4 +96,22 @@ table{
 li{
   letter-spacing: 30px;
   line-height: 50px;
+}
+.hot{
+  padding-top:10px;
+  padding-left:10px;
+  padding-right:10px;
+  padding-bottom:70px;
+
+  font-size: 20px;
+}
+.hot img{
+  width: 100px;
+}
+.mealsright img{
+  height:150px;
+  width: 200px;
+}
+.meals table{
+  width: 900px;
 }

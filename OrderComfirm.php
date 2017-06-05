@@ -57,20 +57,7 @@ $total=0;
 
 					mysqli_query($link,'SET NAMES utf8');
 
-					$result=mysqli_query($link," SELECT * FROM product WHERE species='水果' ");
-					while ($row=mysqli_fetch_assoc($result)){
-						$code=$row['Code'];
-						if (isset($_COOKIE[$row['Code']])) {
-						$name=$_COOKIE[$row['Name']];
-						$price=$_COOKIE[$code.$row['Price']];
-						$quantity=$_COOKIE[$code."Quantity"];
-						$remark=$_COOKIE[$code."Remark"];
-						echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
-						echo "<br/>";
-						$total+=$price*$quantity;
-						}
-					}
-					$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='飯食' ");
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE[$row['Code']])) {
@@ -96,13 +83,53 @@ $total=0;
 						$total+=$price*$quantity;
 						}
 					}
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						if (isset($_COOKIE[$row['Code']])) {
+						$name=$_COOKIE[$row['Name']];
+						$price=$_COOKIE[$code.$row['Price']];
+						$quantity=$_COOKIE[$code."Quantity"];
+						$remark=$_COOKIE[$code."Remark"];
+						echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
+						echo "<br/>";
+						$total+=$price*$quantity;
+						}
+					}
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='其他' ");
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						if (isset($_COOKIE[$row['Code']])) {
+						$name=$_COOKIE[$row['Name']];
+						$price=$_COOKIE[$code.$row['Price']];
+						$quantity=$_COOKIE[$code."Quantity"];
+						$remark=$_COOKIE[$code."Remark"];
+						echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
+						echo "<br/>";
+						$total+=$price*$quantity;
+						}
+					}
+					
 					?>
 					<hr>
 					<?php
 
 					mysqli_query($link,'SET NAMES utf8');
 
-					$result=mysqli_query($link," SELECT * FROM product WHERE species='水果' ");
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='飯食' ");
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						if (isset($_COOKIE["Ramdom".$row['Code']])) {
+							$name=$_COOKIE["Ramdom".$row['Name']];
+							$price=$_COOKIE["Ramdom".$row['Name'].$row['Price']];
+							$quantity=$_COOKIE["Ramdom".$code."Quantity"];
+							$remark=$_COOKIE["Ramdom".$code."Remark"];
+							echo "名稱：".$name." 單價：".$price." 數量：".$quantity." 備註：".$remark;
+							echo "<br/>";
+							$total+=$price*$quantity;
+						}
+					}
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
@@ -128,7 +155,7 @@ $total=0;
 							$total+=$price*$quantity;
 						}
 					}
-					$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='其他' ");
 					while ($row=mysqli_fetch_assoc($result)){
 						$code=$row['Code'];
 						if (isset($_COOKIE["Ramdom".$row['Code']])) {
@@ -144,6 +171,7 @@ $total=0;
 					?>
 				</div>
 				<div class="mainright">
+
 					<br>
 					<form action='' method='post' onsubmit='return show_confirm()'>
 						送達時間：<input type='time' name='GetTime' value=<?php echo $time;?>><br/>
@@ -153,11 +181,12 @@ $total=0;
 					<?php
 					echo "含運費價格：".($total+30);
 					?>
+
 				</div>
 			</div>
 		</duv>
 	</body>
-
+	
 <html>
 
 <?php

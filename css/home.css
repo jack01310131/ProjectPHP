@@ -93,3 +93,7 @@ table{
   text-align:right;
   float:right;
 }
+li{
+  letter-spacing: 30px;
+  line-height: 50px;
+}

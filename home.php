@@ -30,10 +30,10 @@
     
 				<div class="mealsleft">
 					<ul type="none">
-						<li id="clickme1">主餐</li>
-						<li id="clickme2">飲料</li>
-						<li id="clickme3">甜點</li>
-						<li id="clickme4">附餐</li>
+						<li id="clickme1">飯食</li>
+						<li id="clickme2">麵食</li>
+						<li id="clickme3">飲料</li>
+						<li id="clickme4">其他</li>
 					</ul>
 				</div>
 				<div class="mealsright" id="hello0" >

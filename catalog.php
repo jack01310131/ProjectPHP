@@ -1,4 +1,4 @@
-﻿<?php
+﻿<?php ob_start();
 session_start();
 ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -29,7 +29,7 @@ session_start();
 
 			<div class="main">
     			<div class="species" id="species1">
-      			水果
+      			飯食
     			</div>
 	    		<div class="meals" id="meals1">
 				    <?php
@@ -45,7 +45,7 @@ session_start();
 
 
 						echo '<form action="" method="post">';
-						$result=mysqli_query($link," SELECT * FROM product WHERE species='水果' ");
+						$result=mysqli_query($link," SELECT * FROM product WHERE species='飯食' ");
 						$userCode=$_SESSION["code"];
 						echo "<table >";
 						while ($row=mysqli_fetch_assoc($result)){
@@ -61,9 +61,40 @@ session_start();
 
   			<div class="main" >
     			<div class="species" id="species2">
-      			飲料
+      			麵食
     			</div>
 	    		<div class="meals" id="meals2">
+				    <?php
+					
+					require("sql/linksql.php");
+
+					// $link= @mysqli_connect(
+					// 		'localhost',
+					// 		'root',
+					// 		'21427jack',
+					// 		'phpproject');
+					mysqli_query($link,'SET NAMES utf8');
+
+
+						// echo '<form action="" method="post">';
+						$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
+						$userCode=$_SESSION["code"];
+						echo "<table >";
+						while ($row=mysqli_fetch_assoc($result)){
+						echo "<tr><td>".$row['Name']."</td><td>".$row['Price']."</td><td>";
+						echo '<input type="text" size="1" name="Quantity[]" value="0"/></td><td>
+							<input type="text" size="8" name="Remark[]" value="無"></td></tr>';
+
+						}
+						echo "<table>";
+					?>
+	     		</div>
+  			</div>
+  			<div class="main">
+    			<div class="species" id="species3">
+      			飲料
+    			</div>
+	    		<div class="meals" id="meals3">
 				    <?php
 					
 					require("sql/linksql.php");
@@ -92,7 +123,7 @@ session_start();
   			</div>
   			<div class="main">
     			<div class="species" id="species3">
-      			麵食
+      			其他
     			</div>
 	    		<div class="meals" id="meals3">
 				    <?php
@@ -108,7 +139,7 @@ session_start();
 
 
 						// echo '<form action="" method="post">';
-						$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
+						$result=mysqli_query($link," SELECT * FROM product WHERE species='其他' ");
 						$userCode=$_SESSION["code"];
 						echo "<table >";
 						while ($row=mysqli_fetch_assoc($result)){
@@ -149,7 +180,7 @@ mysqli_query($link,'SET NAMES utf8');
 
 	if (isset($_POST['Quantity'])) {
 		$j=0;
-		$result2=mysqli_query($link," SELECT * FROM product WHERE species='水果' ");
+		$result2=mysqli_query($link," SELECT * FROM product WHERE species='飯食' ");
 		while ($row=mysqli_fetch_assoc($result2)){
 				echo $row['Name']." ".$row['Code'];
 				$code=$row['Code'];
@@ -166,7 +197,7 @@ mysqli_query($link,'SET NAMES utf8');
 					setcookie($code."Remark",$R,time()+3600);
 				}
 		}
-		$result2=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
+		$result2=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
 		while ($row=mysqli_fetch_assoc($result2)){
 				echo $row['Name']." ".$row['Code'];
 				$code=$row['Code'];
@@ -182,7 +213,23 @@ mysqli_query($link,'SET NAMES utf8');
 					setcookie($code."Quantity",$Q,time()+3600);
 					setcookie($code."Remark",$R,time()+3600);
 				}
-		}$result2=mysqli_query($link," SELECT * FROM product WHERE species='麵食' ");
+		}$result2=mysqli_query($link," SELECT * FROM product WHERE species='飲料' ");
+		while ($row=mysqli_fetch_assoc($result2)){
+				echo $row['Name']." ".$row['Code'];
+				$code=$row['Code'];
+				$Q=$_POST['Quantity'][$j];
+				$R=$_POST['Remark'][$j];
+				echo " ".$R."<br/>";
+				$j++;
+				$k=1;
+				if($Q>0){
+					setcookie($row['Code'],$row['Code'],time()+3600);
+					setcookie($row['Name'],$row['Name'],time()+3600);
+					setcookie($code.$row['Price'],$row['Price'],time()+3600);
+					setcookie($code."Quantity",$Q,time()+3600);
+					setcookie($code."Remark",$R,time()+3600);
+				}
+		}$result2=mysqli_query($link," SELECT * FROM product WHERE species='其他' ");
 		while ($row=mysqli_fetch_assoc($result2)){
 				echo $row['Name']." ".$row['Code'];
 				$code=$row['Code'];
@@ -199,10 +246,10 @@ mysqli_query($link,'SET NAMES utf8');
 					setcookie($code."Remark",$R,time()+3600);
 				}
 		}
-		if ($k!=0) {
+		// if ($k!=0) {
 			header("Location: shoppingcart.php");
-
-		}
+			ob_end_flush();
+		// }
 
 	}
 	mysqli_close($link);

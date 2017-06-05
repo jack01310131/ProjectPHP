@@ -1,9 +1,10 @@
 <form action="" method="post">
 	商品種類：<select name="species">
 		<option>---</option>
-		<option value="水果">水果</option>
+		<option value="飯食">飯食</option>
 		<option value="麵食">麵食</option>
 		<option value="飲料">飲料</option>
+		<option value="其他">其他</option>
 	</select></br>
 	<input type='submit' value='選擇'>
 </form>

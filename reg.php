@@ -31,6 +31,8 @@
 								<option value="學生">學生</option>
 								<option value="教師">教師</option>
 								<option value="上班族">上班族</option>
+								<option value="設計師">設計師</option>
+								<option value="瑜珈老師">瑜珈老師</option>
 							</select></br>
 						email：<input type="text" name="email"></br>
 						電話：<input type="text" name="phone"></br>

@@ -38,11 +38,6 @@
 <?php
 require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 if (isset($_POST['Name']) && isset($_POST['Price'])) {
@@ -55,6 +50,8 @@ if (isset($_POST['Name']) && isset($_POST['Price'])) {
 	while ($row=mysqli_fetch_assoc($result)) {
 		echo "新增的資料為：<br/>名稱：".$row['Name']."   價格：".$row['Price']." 種類：".$row['species']."<br/>";
 	}
+	header("Location: uploadimg.php?name=$Name");
 }
+
 mysqli_close($link);
 ?>

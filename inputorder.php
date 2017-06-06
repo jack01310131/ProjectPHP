@@ -9,7 +9,7 @@
 		<div class="container">
 			<div class="header" > 
 				<div class="lonig">
-				<a href="Order_overview.php">訂單總覽</a> <a href="catalog.php">catalog</a> <a href="logout.php">登出</a>
+				<a href="Order_overview.php">訂單總覽</a> <a href="productView.php">商品總攬</a> <a href="logout.php">登出</a>
 				</div>
 				<div class="reHome">
 				<a href="home.php">回首頁</a>
@@ -22,9 +22,10 @@
 					價格：<input type='text' name='Price'>
 					種類：<select name="species">
 							<option>---</option>
-							<option value="水果">水果</option>
+							<option value="飯食">飯食</option>
 							<option value="麵食">麵食</option>
 							<option value="飲料">飲料</option>
+							<option value="其他">其他</option>
 							</select> 
 					<input type='submit' value='送出'><br>
 				</form>
@@ -38,6 +39,11 @@
 <?php
 require("sql/linksql.php");
 
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 if (isset($_POST['Name']) && isset($_POST['Price'])) {

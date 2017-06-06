@@ -1,7 +1,11 @@
-﻿<?php
+<?php
 require("sql/linksql.php");
 
-
+// $link= @mysqli_connect(
+// 		'localhost',
+// 		'root',
+// 		'21427jack',
+// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 ?>
 <html>
@@ -29,7 +33,7 @@ mysqli_query($link,'SET NAMES utf8');
 				$result=mysqli_query($link," SELECT * FROM product WHERE Name='$Name'");
 					while ($row=mysqli_fetch_assoc($result)) {
 						$code=$row['Code'];
-						echo "新增的資料為：<br/>名稱：".$row['Name']."   價格：".$row['Price']." 種類：".$row['species']."<br/>";
+						echo "資料為：<br/>名稱：".$row['Name']."   價格：".$row['Price']." 種類：".$row['species']."<br/>";
 					}
 				?>
 				<form action="" method="post" enctype="multipart/form-data">

@@ -32,7 +32,7 @@
 }
 
 .mealsleft {
-  background-color: pink;
+  background-color: #FAC657;
   float:left;
   height:500px;
   width:20%;
@@ -48,9 +48,7 @@
   text-align: center;
   font-size: 30px;
 }
-#hello0{
-  background-color: blue;
-}
+
 .maintop{
   
   padding:10px;
@@ -76,20 +74,20 @@ table{
 
 }
 .floor{
-  padding:10px;
+  padding:3px;
   position:fixed;
   left: 9.5%;
   bottom:0;
   width: 80%;
-  background-color:#BB88EB;
-  height:50px;
+  background-color:#9ECEF7;
+  height:30px;
 }
 .floorright{
   padding:10px;
-  background-color:#4DF79C;
-  height:50px;
-  width: 30%;
-  font-size: 20px;
+  /*background-color:#4DF79C;*/
+  height:30px;
+  /*width: 70%;*/
+  font-size: 15px;
   text-align:right;
   float:right;
 }
@@ -113,5 +111,8 @@ li{
   width: 200px;
 }
 .meals table{
+  width: 900px;
+}
+#hello0 table{
   width: 900px;
 }

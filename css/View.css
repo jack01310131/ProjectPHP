@@ -1,0 +1,17 @@
+.main{
+  background-color: #FFF8D1;
+  /*height:400px;*/
+  padding-top:10px;
+  padding-left:30px;
+  padding-right:30px;
+  padding-bottom:10px;
+
+  font-size: 20px;
+}
+.main table{
+  width: 600px;
+  font-size: 20px;
+}
+.main a{
+  color: blue;
+}

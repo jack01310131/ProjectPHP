@@ -57,13 +57,13 @@ if (isset($_POST['UID'])){
 		if ($row['UID']==$UID) 
 		{
 			if ($row['pwd']==$pwd) 
-			{;
+			{
 				$_SESSION["code"]=$row['code'];
 				if($row['other']=="user")
 				{
-					header("Location:catalog.php");
+					header("Location:home.php");
 				}if($row['other']=="admin")
-				{echo "111";
+				{
 					header("Location:Order_overview.php");
 				}
 			}

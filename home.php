@@ -1,4 +1,5 @@
 <?php
+session_start();
 require("sql/linksql.php");
 
 // $link= @mysqli_connect(
@@ -21,7 +22,13 @@ mysqli_query($link,'SET NAMES utf8');
 
 			<div class="header" > 
 				<div class="lonig">
-				<a href="log.php">登入</a> <a href="reg.php">註冊</a>
+					<?php
+					if(isset($_SESSION["code"])){
+						echo "<a href='catalog.php'>選購</a> <a href='logout.php'>登出</a>";
+					}else{
+						echo "<a href='log.php'>登入</a> <a href='reg.php'>註冊</a>";
+					}
+					?>
 				</div>
 				<div class="reHome">
 				<a href="home.php">回首頁</a>
@@ -48,7 +55,39 @@ mysqli_query($link,'SET NAMES utf8');
 					</ul>
 				</div>
 				<div class="mealsright" id="hello0" >
-				hello0
+					<h3>熱門商品</h3>
+					<table>
+					<?php
+					$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='飯食' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+					while ($row=mysqli_fetch_assoc($result)) {
+						$code=$row['Produce_Code'];
+						echo "<tr><td><img src='img/".$code.".jpg'><br/>";
+						echo $row['Name']."</td>";
+					}
+
+					$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='麵食' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 1");
+					while ($row=mysqli_fetch_assoc($result)) {
+						$code=$row['Produce_Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>";
+						echo $row['Name']."</td></tr>";
+
+					}
+					$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='飲料' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 1");
+					while ($row=mysqli_fetch_assoc($result)) {
+						$code=$row['Produce_Code'];
+						echo "<tr><td><img src='img/".$code.".jpg'><br/>";
+						echo $row['Name']."</td>";
+					}
+
+					$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='其他' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 1");
+					while ($row=mysqli_fetch_assoc($result)) {
+						$code=$row['Produce_Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>";
+						echo $row['Name']."</td></tr>";
+
+					}
+					?>
+					</table>
 				</div>
 				<div class="mealsright" id="hello1">
 				<h3>飯食</h3>
@@ -165,7 +204,15 @@ mysqli_query($link,'SET NAMES utf8');
 		</div>
 		<div class="floor">
 			<div class="floorright">
-				電話：0000-0000
+				如點餐過程遇任何疑問或是建議，歡迎來電洽詢並指教！
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				地址：高雄市楠梓區大學十街330巷37弄8號
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				電話：0988-812-915
 			</div>
 		</div>
 

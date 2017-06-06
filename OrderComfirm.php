@@ -1,12 +1,12 @@
 <?php
 session_start();
-require("sql/linksql.php");
+// require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 $memberCode=$_SESSION['code'];
 
@@ -172,16 +172,17 @@ $total=0;
 				</div>
 				<div class="mainright">
 
-					<br>
+					<br><table><td>
 					<form action='' method='post' onsubmit='return show_confirm()'>
 						送達時間：<input type='time' name='GetTime' value=<?php echo $time;?>><br/>
 						地址：<input type='text' name='Address' value=<?php echo $address;?>><br/>
 						<input type='submit' value='送出 '/><br/>
 					</form>
 					<?php
-					echo "含運費價格：".($total+30);
-					?>
-
+					echo "<br/>含運費價格：".($total+30);
+					?></td><td>
+					<img src='img/cute.jpg'></td>
+					</table>
 				</div>
 			</div>
 		</duv>

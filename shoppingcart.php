@@ -1,12 +1,12 @@
 <?php
 session_start();
 $total=0;
-require("sql/linksql.php");
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+// require("sql/linksql.php");
+$link= @mysqli_connect(
+		'localhost',
+		'root',
+		'21427jack',
+		'phpproject');
 if(isset($_SESSION['code']) ){
 	;
 }
@@ -144,11 +144,10 @@ else
 					?>
 	    		</div>
   			</div>
-  			<div class="meals">
-				<br/>隨機訂單
-			</div>
+
 
 			<div class="main">
+				<h1>隨機訂單</h1>
     			<div class="species">
       			飯食
     			</div>

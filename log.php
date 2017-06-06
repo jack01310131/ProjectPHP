@@ -20,7 +20,7 @@
 			</div>
 			<div class="main">
 			    <div class="maincenter">
-			    	<img src="img/logo.png" style="width:500px">
+			    	<img src="img/cl.png" style="width:500px">
 			    	<!-- <br/>登錄 -->
 			    	<br/><br/>
 			    	<form action="" method="post">

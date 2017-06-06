@@ -23,7 +23,7 @@
 					<form action="" method="post">
 						帳號：<input type="text" name="UID"></br>
 						密碼：<input type="password" name="pwd"></br>
-						請再輸入一次密碼:<input type="password" name="pw2" /> <br>
+						確認密碼:<input type="password" name="pw2" /> <br>
 						姓名:<input type="text" name="name"></br>
 						性別:男<input type="radio" name="gender" value="male">女<input type="radio" name="gender" value="female"><br>
 						職業：<select name="job">

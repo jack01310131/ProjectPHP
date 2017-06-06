@@ -1,7 +1,4 @@
-.container {
-     width:1200px;
-     margin:0px auto;
-}
+
 .header{     
      background-color: #9ECEF7;
      height: 30px;
@@ -13,12 +10,12 @@
 .reHome{
   color:;
   text-align:left;
-  font-family: "標楷體";
+  /*font-family: "標楷體";*/
   font-size: 25px;
 }
 .lonig{
   text-align:right;
-  font-family: "標楷體";
+  /*font-family: "標楷體";*/
   font-size: 25px;
   width:50%;
   float:right;
@@ -26,4 +23,9 @@
 a{
   color:black;
   text-decoration:none;
+}
+.container {
+     width:1200px;
+     margin:0px auto;
+     font-family:"微軟正黑體";
 }

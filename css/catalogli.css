@@ -1,17 +1,14 @@
 .main{
   padding:10px;
-  background-image : url(../img/bg3.jpg );
 }
 .species{
-  /*background-color: #D2F5C9;*/
+  background-color: #D2F5C9;
   height:40px;
   margin:0px auto;
   text-align:center;
   padding-top:10px;
   font-family: 標楷體;
   font-size: 30px;
-  /*opacity:0;*/
-  background-color: rgba(0,0,0,0.3);
 }
 
 

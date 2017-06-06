@@ -16,6 +16,7 @@ mysqli_query($link,'SET NAMES utf8');
 		<meta charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="css/title.css" />
 		<link rel="stylesheet" type="text/css" href="css/home.css" />
+		<link rel="stylesheet" type="text/css" href="css/homeli.css" />
 	</head>
 	<body>
 		<div class="container">
@@ -37,16 +38,93 @@ mysqli_query($link,'SET NAMES utf8');
 
 			<div class="main">
 				<div class="mainleft">
-      				<img src="img/logo.png" width=100%>
+      				<img src="img/cl.png" width=100%>
 				</div>
 				<div class="mainright">
-					<img src="img/click.png" width=100% height=100%>
+					<img src="img/cli.png" height=100%>
 				</div>
 			</div>
 
 			<div class="meals">
-    
-				<div class="mealsleft">
+    	<div id="abgne-block-20110111">
+		<div class="bd">
+			<div class="title">
+				<ul>
+					<li class="on"><h3>飯食</h3></li>
+					<li><h3>麵食</h3></li>
+					<li><h3>飲料</h3></li>
+					<li><h3>其他</h3></li>
+				</ul>
+			</div>
+
+			<div class="info on">
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='飯食' and Status='yes'");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%4==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
+			</div>
+			<div class="info">
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' and Status='yes'");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%4==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
+			</div>
+			<div class="info">
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' and Status='yes'");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%4==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
+			</div>
+			<div class="info">
+				<?php
+					$result=mysqli_query($link," SELECT * FROM product WHERE species='其他' and Status='yes'");
+					echo "<table><tr>";
+					$n=0;
+					while ($row=mysqli_fetch_assoc($result)){
+						$code=$row['Code'];
+						echo "<td><img src='img/".$code.".jpg'><br/>".$row['Name']."</td>";
+						$n++;
+						if($n%4==0){
+							echo "</tr><tr>";
+						}
+					}
+					echo "</table>";
+				?>
+			</div>
+			
+		</div>
+	</div>	
+				<!-- <div class="mealsleft">
 					<ul type="none">
 						<li id="clickme1">飯食</li>
 						<li id="clickme2">麵食</li>
@@ -157,48 +235,58 @@ mysqli_query($link,'SET NAMES utf8');
 					echo "</table>";
 				?>
 				</div>
-			</div>
+			</div> -->
 			<div class="hot">
-				<h1>熱門商品</h1>
+				<table>
+				　<tr><td align="center"><h1>熱門商品</h1></td></tr>
+				</table>
 				<h3>飯食</h3>
 				<?php
 				$n=1;
 				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='飯食' and Status='yes' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				echo "<table><tr>";
 				while ($row=mysqli_fetch_assoc($result)) {
 					$code=$row['Produce_Code'];
-					echo $n.". ".$row['Name']."<img src='img/".$code.".jpg'><br/>";
+					echo "<td>".$n.". ".$row['Name']."<img src='img/".$code.".jpg'></cairo_matrix_transform_distance(matrix, dx, dy)>";
 					$n++;
 				}
+				echo "</tr></table>";
 				?>
 				<h3>麵食</h3>
 				<?php
 				$n=1;
 				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='麵食' and Status='yes' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				echo "<table><tr>";
 				while ($row=mysqli_fetch_assoc($result)) {
 					$code=$row['Produce_Code'];
-					echo $n.". ".$row['Name']."<img src='img/".$code.".jpg'><br/>";
+					echo "<td>".$n.". ".$row['Name']."<img src='img/".$code.".jpg'></cairo_matrix_transform_distance(matrix, dx, dy)>";
 					$n++;
 				}
+				echo "</tr></table>";
 				?>
 				<h3>飲料</h3>
 				<?php
 				$n=1;
 				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='飲料' and Status='yes' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				echo "<table><tr>";
 				while ($row=mysqli_fetch_assoc($result)) {
 					$code=$row['Produce_Code'];
-					echo $n.". ".$row['Name']."<img src='img/".$code.".jpg'><br/>";
+					echo "<td>".$n.". ".$row['Name']."<img src='img/".$code.".jpg'></cairo_matrix_transform_distance(matrix, dx, dy)>";
 					$n++;
 				}
+				echo "</tr></table>";
 				?>
 				<h3>其他</h3>
 				<?php
 				$n=1;
 				$result=mysqli_query($link," SELECT Name,SUM(Total_Amount),Produce_Code FROM list,product WHERE list.Produce_Code=product.Code and species='其他' and Status='yes' GROUP BY Produce_Code ORDER BY SUM(Total_Amount) DESC LIMIT 3");
+				echo "<table><tr>";
 				while ($row=mysqli_fetch_assoc($result)) {
 					$code=$row['Produce_Code'];
-					echo $n.". ".$row['Name']." <img src='img/".$code.".jpg'><br/>";
+					echo "<td>".$n.". ".$row['Name']."<img src='img/".$code.".jpg'></cairo_matrix_transform_distance(matrix, dx, dy)>";
 					$n++;
 				}
+				echo "</tr></table>";
 				?>
 			</div>
 		</div>
@@ -219,6 +307,7 @@ mysqli_query($link,'SET NAMES utf8');
 		<!-- Scripts -->
 			<script src="js/jquery.min.js"></script>
 			<script src="js/home.js"></script>
+			<script src="js/homeli.js"></script>
 
 	</body>
 </html>

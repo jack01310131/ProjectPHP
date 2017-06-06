@@ -1,0 +1,61 @@
+body{
+		font-size: small;
+	}
+	ul, li, h3, p{
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		list-style: none;
+	}
+	a img {
+		bordeR: none;
+		vertical-align:middle;
+	}
+	#abgne-block-20110111 {
+		width: 1170px;
+		border: 1px solid #ccc;
+	}
+	#abgne-block-20110111 .info {
+		display: none;
+		font-family: "微軟正黑體";
+	}
+	#abgne-block-20110111 .on {
+		display: block;
+	}
+	#abgne-block-20110111 .title {
+		border-top: 2px solid #FA8857;
+	}
+	#abgne-block-20110111 .title li {
+		cursor: pointer;
+		float: left;
+		width: 277.5px;
+		background-color: #3e3e3e;
+		border-right: 1px solid #000;
+		height: 54px;
+		padding: 7px 7px 4px;
+	}
+	#abgne-block-20110111 .title li.on, #abgne-block-20110111 .title li.over {
+		background-color: #FA8857;
+		border-right: 1px solid #FA8857;
+	}
+	#abgne-block-20110111 .title li h3 {
+		font-size: 19px;
+		color: #c90;
+		padding-bottom: 6px;
+		text-align:center;
+	}
+	#abgne-block-20110111 .title li p{
+		font-size: 12px;
+		color: #ccc;
+	}
+	#abgne-block-20110111 .title li.on h3, #abgne-block-20110111 .title .over h3, #abgne-block-20110111 .title li.on p, #abgne-block-20110111 .title .over p {
+		color: #fff;
+	}
+	.info img{
+		width: 180px;
+		height: 140px;
+	}
+	.info table{
+		width:1170px;
+	}

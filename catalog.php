@@ -47,7 +47,7 @@ session_start();
 						echo '<form action="" method="post">';
 						$result=mysqli_query($link," SELECT * FROM product WHERE species='飯食' and Status='yes'");
 						$userCode=$_SESSION["code"];
-						echo "<table width='800' border='1'	>";
+						echo "<table width='800'>";
 						while ($row=mysqli_fetch_assoc($result)){
 						echo "<tr><td>".$row['Name']."</td><td>".$row['Price']."</td><td>";
 						echo '<input type="text" size="1" name="Quantity[]" value="0"/></td><td>
@@ -79,7 +79,7 @@ session_start();
 						// echo '<form action="" method="post">';
 						$result=mysqli_query($link," SELECT * FROM product WHERE species='麵食' and Status='yes'");
 						$userCode=$_SESSION["code"];
-						echo "<table >";
+						echo "<table width='800'>";
 						while ($row=mysqli_fetch_assoc($result)){
 						echo "<tr><td>".$row['Name']."</td><td>".$row['Price']."</td><td>";
 						echo '<input type="text" size="1" name="Quantity[]" value="0"/></td><td>
@@ -110,7 +110,7 @@ session_start();
 						// echo '<form action="" method="post">';
 						$result=mysqli_query($link," SELECT * FROM product WHERE species='飲料' and Status='yes'");
 						$userCode=$_SESSION["code"];
-						echo "<table >";
+						echo "<table width='800'>";
 						while ($row=mysqli_fetch_assoc($result)){
 						echo "<tr><td>".$row['Name']."</td><td>".$row['Price']."</td><td>";
 						echo '<input type="text" size="1" name="Quantity[]" value="0"/></td><td>
@@ -141,7 +141,7 @@ session_start();
 						// echo '<form action="" method="post">';
 						$result=mysqli_query($link," SELECT * FROM product WHERE species='其他' and Status='yes' ");
 						$userCode=$_SESSION["code"];
-						echo "<table >";
+						echo "<table width='800'>";
 						while ($row=mysqli_fetch_assoc($result)){
 						echo "<tr><td>".$row['Name']."</td><td>".$row['Price']."</td><td>";
 						echo '<input type="text" size="1" name="Quantity[]" value="0"/></td><td>

@@ -2,11 +2,6 @@
 session_start();
 require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 
 ?>
@@ -25,7 +20,7 @@ mysqli_query($link,'SET NAMES utf8');
 				<div class="lonig">
 					<?php
 					if(isset($_SESSION["code"])){
-						echo "<a href='catalog.php'>選購</a> <a href='logout.php'>登出</a>";
+						echo "<a href='buylist.php'>購買紀錄</a> <a href='catalog.php'>選購</a> <a href='logout.php'>登出</a>";
 					}else{
 						echo "<a href='log.php'>登入</a> <a href='reg.php'>註冊</a>";
 					}

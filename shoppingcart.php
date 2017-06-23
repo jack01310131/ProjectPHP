@@ -1,12 +1,8 @@
 <?php
 session_start();
 $total=0;
-// require("sql/linksql.php");
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
+require("sql/linksql.php");
+
 if(isset($_SESSION['code']) ){
 	;
 }
@@ -276,7 +272,7 @@ else
 			    <div class="footerright">
 			    	<?php
 					echo "小計：NT$ ",$total,"<br/>";
-					echo "小計：NT$ 30<br/>";
+					echo "外送費：NT$ 30<br/>";
 					echo "總金額：NT$ ",$total+30,"<br/>";
 					mysqli_close($link);
 					?>

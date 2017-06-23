@@ -1,10 +1,6 @@
 <?php
-// require("sql/linksql.php");
- $link= @mysqli_connect(
- 		'localhost',
- 		'root',
- 		'21427jack',
- 		'phpproject');
+require("sql/linksql.php");
+
 mysqli_query($link,'SET NAMES utf8');
 
 $Code=$_GET['Code'];

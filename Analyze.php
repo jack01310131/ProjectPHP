@@ -1,13 +1,8 @@
 <?php
 require("Config/GoogleChart.php");
 
-// require("sql/linksql.php");
+require("sql/linksql.php");
 
-$link= @mysqli_connect(
-		'localhost',
-		'root',
-		'21427jack',
-		'phpproject');
 mysqli_query($link,'SET NAMES utf8');
 ?>
 <html>
@@ -242,10 +237,9 @@ mysqli_query($link,'SET NAMES utf8');
 				$labels = array();
 				$legends = array();
 
-				$result=mysqli_query($link,"SELECT Name,ProductCode,COUNT(ProductCode) as time FROM ramdom,product WHERE product.Code=ramdom.ProductCode GROUP BY ProductCode");
-				$result2=mysqli_query($link,"SELECT ProductCode,COUNT(ProductCode) as retime FROM ramdom WHERE RamdomChange='重選' GROUP BY ProductCode");
+				$result=mysqli_query($link,"SELECT ProductCode,COUNT(ProductCode) as retime FROM ramdom WHERE RamdomChange='重選' GROUP BY ProductCode");
 				$n=0;
-				while($row=mysqli_fetch_assoc($result2) ){
+				while($row=mysqli_fetch_assoc($result) ){
 					$recode[$n]=$row['ProductCode'];
 					$retime[$n]=$row['retime'];
 					$n++;
@@ -254,6 +248,47 @@ mysqli_query($link,'SET NAMES utf8');
 				$n=0;
 				echo "<table>";
 				echo "<tr><td>名稱</td><td>選取次數</td><td>重選次數</td><td>重選率</td></tr>";
+				$result=mysqli_query($link,"SELECT Name,ProductCode,COUNT(ProductCode) as time FROM ramdom,product WHERE product.Code=ramdom.ProductCode GROUP BY ProductCode");
+				while($row=mysqli_fetch_assoc($result))
+				{	
+					echo "<tr><td>".$row['Name']."</td><td>".$row['time']."</td><td>";
+					if($n<$i && $row['ProductCode']==$recode[$n]){
+						$changetime=$retime[$n];
+						echo $changetime;
+						$n++;
+					}else{
+						$changetime=0;
+						echo $changetime;
+					}
+					$Percent=(round($changetime/$row['time'],2)*100)."%";
+					echo "</td><td>".$Percent."</td></tr>";
+				}
+				echo "</table>";
+				?>
+				<br/><hr/>
+				<div class="maintop">
+				<h2>三十天內重選率分析</h2>
+				<?php
+				/*三十天內重選率分析*/
+				$data = array();
+				$labels = array();
+				$legends = array();
+
+				$Getdate=date("Y-m-j",strtotime("-30 day"));
+
+				
+				$result=mysqli_query($link,"SELECT ProductCode,COUNT(ProductCode) as retime FROM ramdom WHERE RamdomChange='重選' and datetime>'$Getdate' GROUP BY ProductCode");
+				$n=0;
+				while($row=mysqli_fetch_assoc($result) ){
+					$recode[$n]=$row['ProductCode'];
+					$retime[$n]=$row['retime'];
+					$n++;
+				}
+				$i=$n;
+				$n=0;
+				echo "<table>";
+				echo "<tr><td>名稱</td><td>選取次數</td><td>重選次數</td><td>重選率</td></tr>";
+				$result=mysqli_query($link,"SELECT Name,ProductCode,COUNT(ProductCode) as time FROM ramdom,product WHERE product.Code=ramdom.ProductCode and datetime>'$Getdate' GROUP BY ProductCode");
 				while($row=mysqli_fetch_assoc($result))
 				{	
 					echo "<tr><td>".$row['Name']."</td><td>".$row['time']."</td><td>";

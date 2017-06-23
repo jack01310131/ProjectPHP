@@ -1,15 +1,12 @@
 <?php
 require("sql/linksql.php");
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'21427jack',
-// 		'phpproject');
+
 mysqli_query($link,'SET NAMES utf8');
 
 $code=$_GET["code"];
 $name=$_GET["name"];
 $price=$_GET["price"];
+$datetime=date('Y-m-j');
 
 $result=mysqli_query($link,"SELECT species FROM product WHERE Code='$code' ");
 while ($row=mysqli_fetch_assoc($result)){
@@ -34,7 +31,7 @@ $result=mysqli_query($link,"SELECT MAX(Code) as max FROM product");
 		$result=mysqli_query($link," SELECT Code FROM product WHERE Code='$n' and species='$species' and Status='yes' ");
 		while ($row=mysqli_fetch_assoc($result)){
 			$Rporduct=$row['Code'];
-			mysqli_query($link," INSERT INTO ramdom (ProductCode, RamdomChange) VALUES ('$Rporduct','重選')");
+			mysqli_query($link," INSERT INTO ramdom (ProductCode, RamdomChange,datetime) VALUES ('$Rporduct','重選','$datetime')");
 
 		}
 	}

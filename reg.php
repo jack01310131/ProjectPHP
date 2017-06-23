@@ -50,12 +50,6 @@
 <?php
 require("sql/linksql.php");
 
-// $link= @mysqli_connect(
-// 		'localhost',
-// 		'root',
-// 		'a1043328',
-// 		'php');
-
 if (isset($_POST['name'])){
 
 $UID=$_POST["UID"];
